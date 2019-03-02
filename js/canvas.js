@@ -6,7 +6,7 @@ let canvas = {
         this.context = this.canvas.getContext('2d')
         this.canvas.width = 964; //964x904 pixels
         this.canvas.height = 865;
-        this.image.src = '../styles/assets/images/27982.png';       
+        this.image.src = '../assets/images/27982.png';       
         this.image.onload = updateGame();  
         document.getElementById('game-board').appendChild(this.canvas);
     },  
