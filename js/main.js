@@ -1,7 +1,7 @@
 import {canvas} from './canvas.js';
-import {Component} from './component.js';
+import {Obstacle} from './obstacles.js';
 let tank;
-tank = new Component(100, 50, 'tank.png', 100, 100)
+tank = new Obstacle(100, 50, 'tank.png', 100, 100)
 
 
 function startGame(){
