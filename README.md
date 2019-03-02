@@ -11,4 +11,4 @@ Well, this will enable a local environment ready for playing a little bit.
 In summary, this game is about a battle tanks on a canvas. They can configure the bullet, the speed, the armor, etc..
 
 # Help
-Task on (Trello)[https://trello.com/b/A4L4X0WS/irontank]
+Task on [Trello](https://trello.com/b/A4L4X0WS/irontank)
