@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('hola mundo!')
+  // we will create the canvas onece it is loaded. 
 })
