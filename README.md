@@ -2,8 +2,8 @@
 This is the final project from the first module of the web development part time course in IronHack. Pure Javascript. Enjoy
 
 # Starting: 
-    1) yarn install 
-    2) gulp start
+    yarn install 
+    gulp start
 
 # What is going on?. 
 Well, this will enable a local environment ready for playing a little bit. 
