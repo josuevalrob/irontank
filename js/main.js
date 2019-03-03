@@ -28,11 +28,11 @@ document.onkeydown = function(e) {
     case 37: //left key
       tank.turn(37);
     break;
-    // case 38: //Up key
-    //   tank.turnRight();      
-    // break;
+    case 38: //Up key
+      tank.newPos(10);      
+    break;
     // case 40: //down key
-    //   tank.turnRight();  
+    //   tank.newPos();  
     // break;
   }
 }
