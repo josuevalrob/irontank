@@ -1,7 +1,7 @@
 import {canvas} from './canvas.js';
-import {Tree} from './tree.js';
+import {Block} from './blockt.js';
 let tank;
-tank = new Tree(100, 50, 'tank.png', 500, 100)
+tank = new Block(100, 50, 'tank.png', 500, 100)
 
 
 function startGame(){
