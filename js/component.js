@@ -10,7 +10,9 @@ function Component(width, height, img, x, y) {
 }
 
 Component.prototype.update = function (){
+  canvas.context.save()
   canvas.context.drawImage(this.imageComp, this.x, this.y, this.width, this.height)
+  canvas.context.restore()
 }
 
 export {Component};
