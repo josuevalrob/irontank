@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.onkeydown = function(e) {
   switch (e.keyCode) {
     case 39: //right key
-      tank.turn(39);
+      tank.turnRight();
     break;
     case 37: //left key
-      tank.turn(37);
+      tank.turnLeft();
     break;
     case 38: //Up key
-      tank.newPos(10);      
+      tank.newPos();      
     break;
     // case 40: //down key
     //   tank.newPos();  
