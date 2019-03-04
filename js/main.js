@@ -31,9 +31,10 @@ document.onkeydown = function(e) {
     case 38: //Up key
       tank.newPos();      
     break;
-    // case 40: //down key
-    //   tank.newPos();  
-    // break;
+    case 40: //down key
+      e.preventDefault();
+      tank.shot();  
+    break;
   }
 }
 })
