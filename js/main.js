@@ -1,7 +1,11 @@
 import {canvas} from './canvas.js';
 import {Tank} from './tank.js';
-let tank;
-tank = new Tank(100, 50, 'tank.png', 100, 100)
+
+// import {Bullet} from './bullet.js';
+  let tank;
+  tank = new Tank(100, 50, 'tank.png', 100, 100)
+// let bullet
+// bullet = new Bullet(35, 7, 'bullet.png', 100, 100)
 
 
 function startGame(){
@@ -12,6 +16,9 @@ function startGame(){
 function updateGame (){
   canvas.bkgDraw() //this should be here?? really??
   tank.update();
+  tank.myBullets.forEach(bullet => {
+    bullet.update();
+  });
   requestAnimationFrame(updateGame);      
 }
 

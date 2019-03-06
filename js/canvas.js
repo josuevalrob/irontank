@@ -12,12 +12,15 @@ canvas.start = function () {
     this.image.onload = updateGame();  
     document.getElementById('game-board').appendChild(this.canvas);
 },  
-canvas.stop = function(){
+canvas.stop = function (){
     this.pause = !this.pause;
 }, 
 canvas.bkgDraw =  function (){
     this.context.drawImage(this.image, 0, 0);
 } 
+canvas.clear = function (){
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+}
 
 
 export {canvas}

@@ -7,7 +7,7 @@ function Dinamic (width, height, img, x, y, rotX, rotY, degree){
   Component.call(this, width, height, img, x, y, rotX, rotY, degree);
 }
 
-Dinamic.prototype.update = function () {
+Dinamic.prototype.update = function () {  
   canvas.context.save();
   canvas.context.translate(this.x, this.y); 
   canvas.context.rotate(this.degree * (Math.PI / 180));
@@ -18,6 +18,9 @@ Dinamic.prototype.update = function () {
 Dinamic.prototype.newPos = function() {
   this.y += this.speed * Math.sin(this.degree * Math.PI/180);
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);
+  // canvas.clear();
+  // setInterval(canvas.clear(), 10)
+  
 }
 
 export {Dinamic};
