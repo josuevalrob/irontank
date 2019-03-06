@@ -1,34 +1,40 @@
 import {canvas} from './canvas.js';
 import {Tank} from './tank.js';
+import {randomMap, objects, objectsKeys} from './randomMap.js'
+randomMap();
 
-// import {Bullet} from './bullet.js';
-  let tank;
-  tank = new Tank(100, 50, 'tank.png', 100, 100)
-// let bullet
-// bullet = new Bullet(35, 7, 'bullet.png', 100, 100)
-
+let tank = new Tank(100, 50, 'tank.png', 100, 100)
 
 function startGame(){
-  canvas.start();
+    canvas.start();
 }
-
 
 function updateGame (){
-  canvas.bkgDraw() //this should be here?? really??
-  tank.update();
-  if(tank.myBullet != undefined){
-    tank.myBullet.update();
-  }
-  requestAnimationFrame(updateGame);      
+  if(canvas.pause)  {
+    canvas.clear()
+    canvas.bkgDraw() 
+    tank.update();
+    
+    if(tank.myBullet != undefined)
+      tank.myBullet.update();
+    
+    objectsKeys.forEach( e => {
+      objects[e].forEach((_, i) => {
+        objects[e][i].update()
+      })
+      objects[e].some(o => {
+        if(tank.crashWith(o))
+          tank.stop()
+      })    
+    })
+
+    requestAnimationFrame(updateGame);   
+  }   
 }
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
   // we will create the canvas onece it is loaded. 
   startGame();
 document.onkeydown = function(e) {
-  e.preventDefault();
   switch (e.keyCode) {
     case 39: //right key
       tank.turnRight();
@@ -40,11 +46,16 @@ document.onkeydown = function(e) {
       tank.newPos();      
     break;
     case 40: //down key
+      e.preventDefault();
       tank.shot();  
+    break;
+    case 32: //logs
+      e.preventDefault();
+      console.log(objects.blocks[0].left());  
     break;
   }
 }
 })
 
 
-export {updateGame};
+export {updateGame, objects};

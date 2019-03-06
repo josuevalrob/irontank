@@ -18,9 +18,20 @@ Dinamic.prototype.update = function () {
 Dinamic.prototype.newPos = function() {
   this.y += this.speed * Math.sin(this.degree * Math.PI/180);
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);
-  // canvas.clear();
-  // setInterval(canvas.clear(), 10)
-  
+}
+
+Dinamic.prototype.crashWith = function (obstacle) {
+  return !((this.bottom() < obstacle.top())   ||
+          (this.top()    > obstacle.bottom()) ||
+          (this.right()  < obstacle.left())   ||
+          (this.left()   > obstacle.right()))
+}
+
+
+Dinamic.prototype.stop = function () {
+  debugger
+  this.x = this.x;
+  this.y = this.y;
 }
 
 export {Dinamic};

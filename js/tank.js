@@ -1,7 +1,7 @@
 import {Dinamic} from './dinamic.js';
 import {Bullet} from './bullet.js';
 import {canvas} from './canvas.js';
-
+import {objects, objectsKeys} from './randomMap.js';
 //Copying prototypes from Dinamic
 Tank.prototype = Object.create(Dinamic.prototype); 
 
@@ -19,17 +19,36 @@ Tank.prototype.turnLeft = function(){
   this.degree -= 5;
   canvas.clear();
 }
-
+let bulletTime
 Tank.prototype.shot = function() {
   this.myBullet = new Bullet(30, 7, 'bullet.png', this.x, this.y, this.degree);
-  let bulletTime = setInterval(()=>{
-    this.myBullet.speed -= 6
-    this.myBullet.newPos();
-    if(this.myBullet.speed < 1){
-      clearInterval(bulletTime);
-      this.myBullet = undefined;
-    }
-  }, 50); 
+    bulletTime = setInterval(()=>{
+      this.myBullet.speed -= 6
+      this.myBullet.newPos();
+      
+      // stop the bullet
+      objectsKeys.forEach( e => {
+        objects[e].some(o => {
+          if(this.myBullet.crashWith(o))
+            this.stop()
+        })    
+      })
+
+      // Reduce the bullet speed
+      //{...}      
+
+      // Explote! 
+      // {...}
+
+      // stop the cicle
+      if(this.myBullet.speed < 1)
+        this.stopBullet() 
+    }, 50);   
+}
+
+Tank.prototype.stopBullet = function (){
+  clearInterval(bulletTime);
+  this.myBullet = undefined;
 }
 
 export {Tank}
