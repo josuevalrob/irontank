@@ -30,7 +30,7 @@ Tank.prototype.shot = function() {
       objectsKeys.forEach( e => {
         objects[e].some(o => {
           if(this.myBullet.crashWith(o))
-            this.stop()
+            this.stopBullet()
         })    
       })
 
