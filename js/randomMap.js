@@ -1,16 +1,35 @@
 import {Block} from './block.js';
 import {Tree} from './tree.js';
-let objects = {}
+// Create an array of possible positions. 
 let objectsKeys
 
-
-// Create an array of possible positions. 
+function randomMap () { 
+  shuffleCards() 
+  objects.blocks = []
+  objects.tree = []
+  for (let i = 0; i < positions.length; i++) {
+    if (i % 2 == 0){
+      objects.blocks.push(new Block(50, 50, 'box.png', positions[i][0], positions[i][1]))
+    } else{
+      objects.tree.push(new Tree(50, 50, 'tree.png', positions[i][0], positions[i][1]))
+    }
+  }
+  objectsKeys = Object.keys(objects);
+}
 let positions = [
   [200, 200],
   [350, 400],
   [30, 600],
   [100, 500],
+  [500, 200],
+  [650, 400],
+  [700, 600],
+  [900, 500],
 ]
+let objects = {}
+
+
+
 
 function shuffleCards () {
   console.log(positions)
@@ -32,18 +51,5 @@ function shuffleCards () {
   // de esta forma no importa que el número random se repita.
 
 };
-
-function randomMap () { 
-  shuffleCards() 
-  objects.blocks = [
-    new Block(50, 50, 'box.png', positions[0][0], positions[0][1]),
-    new Block(50, 50, 'box.png', positions[1][0], positions[1][1])
-  ]
-  objects.tree = [
-    new Tree(50, 50, 'tree.png', positions[2][0], positions[2][1]),
-    new Tree(50, 50, 'tree.png', positions[3][0], positions[3][1])
-  ]
-  objectsKeys = Object.keys(objects);
-}
 
 export {randomMap, objects, objectsKeys}
