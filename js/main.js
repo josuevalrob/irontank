@@ -16,9 +16,9 @@ function startGame(){
 function updateGame (){
   canvas.bkgDraw() //this should be here?? really??
   tank.update();
-  tank.myBullets.forEach(bullet => {
-    bullet.update();
-  });
+  if(tank.myBullet != undefined){
+    tank.myBullet.update();
+  }
   requestAnimationFrame(updateGame);      
 }
 
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // we will create the canvas onece it is loaded. 
   startGame();
 document.onkeydown = function(e) {
+  e.preventDefault();
   switch (e.keyCode) {
     case 39: //right key
       tank.turnRight();
@@ -39,7 +40,6 @@ document.onkeydown = function(e) {
       tank.newPos();      
     break;
     case 40: //down key
-      e.preventDefault();
       tank.shot();  
     break;
   }
