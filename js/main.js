@@ -10,7 +10,7 @@ function startGame(){
 
 
 function updateGame (){
-  canvas.bkgDraw()
+  canvas.bkgDraw() //this should be here?? really??
   tank.update();
   requestAnimationFrame(updateGame);      
 }

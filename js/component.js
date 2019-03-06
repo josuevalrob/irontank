@@ -1,4 +1,3 @@
-import {canvas} from './canvas.js';
 
 function Component(width, height, img, x, y, degree = 0) {
   // Image properties
@@ -16,13 +15,6 @@ function Component(width, height, img, x, y, degree = 0) {
   this.degree = degree; //'N' => 270 'S' => 90, 'W' => 180 'E' => 0  
 }
 
-Component.prototype.update = function (){
-  canvas.context.drawImage(
-    this.imageComp, 
-    this.x, 
-    this.y, 
-    this.width, 
-    this.height);
-}
+
 
 export {Component};
