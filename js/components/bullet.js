@@ -21,16 +21,22 @@ Bullet.prototype.newPos = function() {
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);  
   this.a = this.x
   this.b = this.y
-  // Stop the bullet
-    objects.blocks.some((box, i) => {
-      if(this.crashWith(box)){
-        this.stopBullet();
-        box.destroy()
-      }
-      if(objects.blocks[i].lifes >= 4){
-        objects.blocks.splice(i, 1)
-      }
-    })    
+  // Blocks destruction
+  objects.blocks.some((box, i) => {
+    if(this.crashWith(box)){
+      this.stopBullet();
+      box.destroy()
+    }
+    if(objects.blocks[i].lifes >= 4){
+      objects.blocks.splice(i, 1)
+    }
+  }) 
+  //  Trees countdown
+  objects.trees.some(tree =>{
+    if(this.crashWith(tree)){
+      this.speed -= 15
+    }
+  })
 }
 Bullet.prototype.stopBullet = function (){
   // clearInterval(bulletTime);
