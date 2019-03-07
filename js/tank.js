@@ -29,7 +29,7 @@ Tank.prototype.shot = function() {
       // stop the bullet
       objectsKeys.forEach( e => {
         objects[e].some(o => {
-          if(this.myBullet.crashWith(o))
+          if(this.myBullet != undefined && this.myBullet.crashWith(o))
             this.stopBullet()
         })    
       })
@@ -41,7 +41,7 @@ Tank.prototype.shot = function() {
       // {...}
 
       // stop the cicle
-      if(this.myBullet.speed < 1)
+      if(this.myBullet != undefined && this.myBullet.speed < 1)
         this.stopBullet() 
     }, 50);   
 }
