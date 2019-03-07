@@ -20,12 +20,8 @@ function updateGame (){
     
     objectsKeys.forEach( e => {
       objects[e].forEach((_, i) => {
-        objects[e][i].update()
+          objects[e][i].update()
       })
-      objects[e].some(o => {
-        if(tank.crashWith(o))
-          tank.stop()
-      })    
     })
 
     requestAnimationFrame(updateGame);   

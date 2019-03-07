@@ -1,5 +1,5 @@
 
-function Component(width, height, img, x, y, degree = 0) {
+function Component(width, height, img, x, y, degree = 55) {
   // Image properties
   this.imageComp = new Image();
   this.imageComp.src = '../assets/images/' + img;

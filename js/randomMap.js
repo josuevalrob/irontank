@@ -17,9 +17,10 @@ function randomMap () {
   shuffleCards(positions) 
   objects.blocks = []
   objects.tree = []
+  // objects.blocks.push(new Block(200, 200))
   for (let i = 0; i < positions.length; i++) {
     if (i % 2 == 0){
-      objects.blocks.push(new Block(50, 50, 'box.png', positions[i][0], positions[i][1]))
+      objects.blocks.push(new Block(positions[i][0], positions[i][1]))
     } else{
       objects.tree.push(new Tree(50, 50, 'tree.png', positions[i][0], positions[i][1]))
     }
