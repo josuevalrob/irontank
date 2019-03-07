@@ -1,5 +1,5 @@
 import {Component} from './component.js';
-import {canvas} from './canvas.js';
+import {canvas} from '../canvas.js';
 
 //Copying prototypes from Component
 Static.prototype = Object.create(Component.prototype); 

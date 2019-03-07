@@ -1,7 +1,7 @@
 import {Dinamic} from './dinamic.js';
 import {Bullet} from './bullet.js';
-import {canvas} from './canvas.js';
-import {objects, objectsKeys} from './randomMap.js';
+import {canvas} from '../canvas.js';
+import {objects, objectsKeys} from '../helpers/randomMap.js';
 //Copying prototypes from Dinamic
 Tank.prototype = Object.create(Dinamic.prototype); 
 

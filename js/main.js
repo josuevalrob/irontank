@@ -1,6 +1,7 @@
 import {canvas} from './canvas.js';
-import {Tank} from './tank.js';
-import {randomMap, objects, objectsKeys} from './randomMap.js'
+import {Tank} from './components/tank.js';
+import {randomMap, objects, objectsKeys} from './helpers/randomMap.js'
+import {keyActions} from './helpers/keyAction.js' //I dont know how the fuck this works
 randomMap();
 
 let tank = new Tank(100, 50, 'tank.png', 100, 100)
@@ -30,28 +31,7 @@ function updateGame (){
 document.addEventListener('DOMContentLoaded', function () {
   // we will create the canvas onece it is loaded. 
   startGame();
-document.onkeydown = function(e) {
-  switch (e.keyCode) {
-    case 39: //right key
-      tank.turnRight();
-    break;
-    case 37: //left key
-      tank.turnLeft();
-    break;
-    case 38: //Up key
-      tank.newPos();      
-    break;
-    case 40: //down key
-      e.preventDefault();
-      tank.shot();  
-    break;
-    case 32: //logs
-      e.preventDefault();
-      console.log(objects.blocks[0].left());  
-    break;
-  }
-}
 })
 
 
-export {updateGame, objects};
+export {updateGame, objects, tank};

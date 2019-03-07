@@ -1,7 +1,7 @@
 import {Component} from './component.js';
-import {objects, objectsKeys} from './randomMap.js';
+import {objects, objectsKeys} from '../helpers/randomMap.js';
 
-import {canvas} from './canvas.js';
+import {canvas} from '../canvas.js';
 Dinamic.prototype = Object.create(Component.prototype); 
 
 function Dinamic (width, height, img, x, y, rotX, rotY, degree){

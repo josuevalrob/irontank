@@ -1,5 +1,5 @@
 import {Static} from './static.js'
-import {canvas} from './canvas.js';
+import {canvas} from '../canvas.js';
 
 Block.prototype = Object.create(Static.prototype);
 function Block (x, y){

@@ -1,5 +1,5 @@
-import {Block} from './block.js';
-import {Tree} from './tree.js';
+import {Block} from '../components/block.js';
+import {Tree} from '../components/tree.js';
 // Create an array of possible positions. 
 let positions = [
   [200, 200],
@@ -9,7 +9,7 @@ let positions = [
   [500, 200],
   [650, 400],
   [700, 600],
-  [900, 500],
+  [400, 500],
 ]
 let objects = {}
 let objectsKeys
