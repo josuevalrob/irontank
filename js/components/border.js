@@ -15,58 +15,51 @@ function Border (){
   this.screenWidth = window.innerWidth
   this.screenHeight = window.innerHeight
 }
-
-
 Border.prototype.update = function (){
-  //draw corner  
-  this.rightDown()
-  this.rightUp()
-  this.leftDown()
-  this.leftUp()
-  this.Up()
-  this.Down()
-  this.Right() 
-  this.Left()   
-  // this should be a constructor. fuck!!
-}
-
-Border.prototype.rightUp = function () { 
   let ctx = canvas.context
   let newImage = new Image()
   newImage.src = '../assets/images/back/ds.png';
-  ctx.drawImage(newImage, this.screenWidth - this.width, this.y, this.width, this.height);
- }
-
- Border.prototype.rightDown = function () { 
-  let ctx = canvas.context
-  let newImage = new Image()
+  this.rightUp(ctx, newImage)
+  newImage = new Image()
   newImage.src = '../assets/images/back/di.png';
+  this.rightDown(ctx, newImage)
+  newImage = new Image()
+  newImage.src = '../assets/images/back/is.png';
+  this.leftUp(ctx, newImage)
+  newImage = new Image()
+  newImage.src = '../assets/images/back/ii.png';
+  this.leftDown(ctx, newImage)
+
+  this.Up(ctx)
+  this.Down(ctx)
+  this.Right(ctx) 
+  this.Left(ctx)   
+  // this should be a constructor. fuck!!
+}
+
+Border.prototype.rightUp = function (ctx, newImage) { 
+  ctx.drawImage(newImage, this.screenWidth - this.width, this.y, this.width, this.height);
+}
+
+ Border.prototype.rightDown = function (ctx, newImage) {
   ctx.drawImage(newImage, this.screenWidth - this.width, this.screenHeight - this.height, this.width, this.height);
  }
-Border.prototype.leftUp = function () { 
-  let ctx = canvas.context
-  let newImage = new Image()
-  newImage.src = '../assets/images/back/is.png';
+Border.prototype.leftUp = function (ctx, newImage) { 
   ctx.drawImage(newImage, this.x, this.y, this.width, this.height);
  }
 
- Border.prototype.leftDown = function () { 
-  let ctx = canvas.context
-  let newImage = new Image()
-  newImage.src = '../assets/images/back/ii.png';
+ Border.prototype.leftDown = function (ctx, newImage) {
   ctx.drawImage(newImage, this.x, this.screenHeight - this.height, this.width, this.height);
  }
 
-Border.prototype.Up = function () { 
-  let ctx = canvas.context
+Border.prototype.Up = function (ctx) { 
   let newImage = new Image()
       newImage.src = '../assets/images/back/sup.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(this.width, this.y, this.screenWidth - (this.width * 2), this.height - 10);
  }
-Border.prototype.Down = function () { 
-  let ctx = canvas.context
+Border.prototype.Down = function (ctx) { 
   let newImage = new Image()
       newImage.src = '../assets/images/back/inf.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
@@ -74,8 +67,7 @@ Border.prototype.Down = function () {
   ctx.fillRect(this.x + this.width, this.screenHeight - this.height + 9, this.screenWidth - (this.width * 2), this.height);
   // ctx.strokeRect(this.x + this.width, 620, this.screenWidth - (this.width * 2), this.height);
  }
- Border.prototype.Left = function () { 
-  let ctx = canvas.context
+ Border.prototype.Left = function (ctx) { 
   let newImage = new Image()
       newImage.src = '../assets/images/back/li.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
@@ -83,9 +75,8 @@ Border.prototype.Down = function () {
   ctx.fillRect(0, this.width, this.width - 5 , this.screenHeight - (this.height * 2));
   // ctx.strokeRect(this.screenWidth - this.width, this.width, this.width ,this.screenHeight - (this.height * 2));
  }
- Border.prototype.Right = function () { 
+ Border.prototype.Right = function (ctx) { 
   //  This border sucks! 
-  let ctx = canvas.context
   let newImage = new Image()
       newImage.src = '../assets/images/back/ld.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
