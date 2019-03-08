@@ -3,41 +3,27 @@ import {canvas} from '../../canvas.js';
 
 Block.prototype = Object.create(Static.prototype);
 function Block (x, y){
-  let img = 'boxes.png';
   let width = 50;
   let height = 50;
-  Static.call(this, width, height, img, x, y)  
+  this.currentImage = 0
   this.transX = 0
   this.transY = 0
   this.lifes = 0;
+  let img = 'boxes/' + this.imgArr[0];
+  Static.call(this, width, height, img, x, y)
 }
 Block.prototype.update = function (){
   let ctx = canvas.context
-// Create the mask
-  ctx.save()
-  ctx.rect(this.x, this.y, this.width, this.height)
-  ctx.stroke()
-  ctx.clip()
-  ctx.fillStyle = "red";
-  ctx.drawImage(
-    this.imageComp, 
-    this.x - this.transX, 
-    this.y - this.transY, // - 50, 
-    450, 
-    100);
+  ctx.drawImage(this.imageComp, this.x,this.y,this.width, this.height);
   ctx.restore()
-
 }
 
 Block.prototype.destroy = function () {
     this.transX += 50;
     this.lifes -= 1
+    this.currentImage += 1
+    this.img = 'boxes/' + this.imgArr[this.currentImage];
+    if (this.lifes > 1)
+      this.imageComp.src = '../assets/images/' + this.img;
 }
-
-
-// Paint the image
-
-// move the image according to state change
-
-
 export {Block};
