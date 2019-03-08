@@ -5,9 +5,7 @@ Block.prototype = Object.create(Static.prototype);
 function Block (x, y){
   let width = 50;
   let height = 50;
-  this.currentImage = 0
-  this.transX = 0
-  this.transY = 0
+  this.currentImage = 0  
   this.lifes = 0;
   let img = 'boxes/' + this.imgArr[0];
   Static.call(this, width, height, img, x, y)
@@ -19,7 +17,6 @@ Block.prototype.update = function (){
 }
 
 Block.prototype.destroy = function () {
-    this.transX += 50;
     this.lifes -= 1
     this.currentImage += 1
     this.img = 'boxes/' + this.imgArr[this.currentImage];

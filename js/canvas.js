@@ -1,8 +1,12 @@
 import {updateGame} from './main.js';
+import {Border} from './components/border.js'
+
 let canvas = {  
     image : new Image(),  
     canvas : document.createElement('canvas'), 
-    pause : true
+    pause : true,
+    border : new Border()
+
 }
 
 canvas.start = function () {
@@ -18,11 +22,11 @@ canvas.stop = function (){
 canvas.bkgDraw =  function (){
     this.canvas.height = window.innerHeight;        
     this.canvas.width = window.innerWidth; //964x904 pixels
-    this.mainPtrn = this.context.createPattern(this.image, 'repeat');
-    this.context.fillStyle=this.mainPtrn;
-    
+    this.mainPtrn = this.context.createPattern(this.image, 'repeat');    
+    this.context.fillStyle=this.mainPtrn;    
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     // this.context.drawImage(this.image, 0, 0);
+    this.border.update();
 } 
 canvas.clear = function (){
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
