@@ -1,4 +1,5 @@
 import {tank} from '../main.js';
+import {objects, objectsKeys} from './randomMap.js'
 
 let keyActions;
   // we will create the canvas onece it is loaded. 
@@ -18,10 +19,10 @@ let keyActions;
         e.preventDefault();
         tank.shot();  
       break;
-      // case 32: //logs
-      //   e.preventDefault();
-      //   console.log(objects.blocks[0].left());  
-      // break;
+      case 32: //logs
+        e.preventDefault();
+        objects.blocks[0].debbug();  
+      break;
     }
   }
 export {keyActions}

@@ -1,7 +1,6 @@
 import {Dinamic} from './dinamic.js';
 import {Bullet} from './bullet.js';
 import {canvas} from '../canvas.js';
-import {objects, objectsKeys} from '../helpers/randomMap.js';
 //Copying prototypes from Dinamic
 Tank.prototype = Object.create(Dinamic.prototype); 
 
@@ -26,7 +25,7 @@ Tank.prototype.turnLeft = function(){
 // let bulletTime
 Tank.prototype.shot = function() {
   if(!this.myBullet){
-    this.myBullet = new Bullet(30, 7, 'bullet.png', this.x, this.y, this.degree);
+    this.myBullet = new Bullet(this.x, this.y, this.degree);
     this.myBullet.stopBullet(); //bullet go => true!
     this.shooting();
   }       
@@ -34,8 +33,7 @@ Tank.prototype.shot = function() {
 Tank.prototype.shooting = function() {
   if(this.myBullet.bulletGo) {
     this.myBullet.speed -= 8
-    this.myBullet.newPos()
-  
+    this.myBullet.newPos()  
     if(this.myBullet !=undefined && this.myBullet.speed > 1) {
       requestAnimationFrame(this.shooting.bind(this));
     } else {
@@ -44,7 +42,5 @@ Tank.prototype.shooting = function() {
     }
   }
 }    
-
-
 
 export {Tank}

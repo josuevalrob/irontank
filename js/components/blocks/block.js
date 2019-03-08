@@ -1,10 +1,9 @@
-import {Static} from './static.js'
-import {canvas} from '../canvas.js';
+import {Static} from '../static.js'
+import {canvas} from '../../canvas.js';
 
 Block.prototype = Object.create(Static.prototype);
 function Block (x, y){
   let img = 'boxes.png';
-  // Size property
   let width = 50;
   let height = 50;
   Static.call(this, width, height, img, x, y)  
@@ -17,12 +16,13 @@ Block.prototype.update = function (){
 // Create the mask
   ctx.save()
   ctx.rect(this.x, this.y, this.width, this.height)
+  ctx.stroke()
   ctx.clip()
   ctx.fillStyle = "red";
   ctx.drawImage(
     this.imageComp, 
     this.x - this.transX, 
-    this.y, // - 50, 
+    this.y - this.transY, // - 50, 
     450, 
     100);
   ctx.restore()
@@ -31,8 +31,9 @@ Block.prototype.update = function (){
 
 Block.prototype.destroy = function () {
     this.transX += 50;
-    this.lifes += 1
+    this.lifes -= 1
 }
+
 
 // Paint the image
 

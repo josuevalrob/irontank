@@ -1,5 +1,5 @@
 
-function Component(width, height, img, x, y, degree = 55) {
+function Component(width, height, img, x, y, degree = 90) {
   // Image properties
   this.imageComp = new Image();
   this.imageComp.src = '../assets/images/' + img;
@@ -21,5 +21,10 @@ function Component(width, height, img, x, y, degree = 55) {
   this.bottom = function() { return (this.y + this.height) };
 }
 
+Component.prototype.debbug = function (stop = false) {  
+  console.log(this)
+  if(stop)
+    debugger
+}
 
 export {Component};

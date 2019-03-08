@@ -1,34 +1,28 @@
-import {Block} from '../components/block.js';
+import {positions} from './positions.js'
+import {woodBlock} from '../components/blocks/woodBlock.js'
+import {ironBlock} from '../components/blocks/ironBlock.js';
 import {Tree} from '../components/tree.js';
 // Create an array of possible positions. 
-let positions = [
-  [200, 200],
-  [350, 400],
-  [30, 600],
-  [100, 500],
-  [500, 200],
-  [650, 400],
-  [700, 600],
-  [400, 500],
-]
 let objects = {}
 let objectsKeys
 function randomMap () { 
-  shuffleCards(positions) 
   objects.blocks = []
-  objects.trees = []
-  // objects.blocks.push(new Block(200, 200))
-  for (let i = 0; i < positions.length; i++) {
-    if (i % 2 == 0){
-      objects.blocks.push(new Block(positions[i][0], positions[i][1]))
-    } else{
-      objects.trees.push(new Tree(50, 50, 'tree.png', positions[i][0], positions[i][1]))
-    }
-  }
+  shuffleArry(positions.random) 
+  objects.trees = positions.random.map(e =>{
+    return new Tree(50, 50, 'tree.png', e[0], e[1])
+    // objects.blocks.push(new woodBlock(positions[i][0], positions[i][1]))
+    // objects.blocks.push(new ironBlock(positions[i][0], positions[i][1]))
+  })
+  // objects.blocks.push(new ironBlock(positions.square[0][0], positions.square[0][1]))
+  objects.blocks = positions.square.map(e=>{
+    return new woodBlock(e[0], e[1])
+  })
+
+  console.log(objects.blocks)
   objectsKeys = Object.keys(objects);
 }
 
-function shuffleCards (arr) {
+function shuffleArry (arr) {
   var m = arr.length, t, i;
   while (m) { 
     i = Math.floor(Math.random() * m--); 

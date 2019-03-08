@@ -10,8 +10,11 @@ import {objects, objectsKeys} from '../helpers/randomMap.js';
 
 Bullet.prototype = Object.create(Dinamic.prototype); 
 
-function Bullet (width, height, img, x, y, rotX, rotY, degree, speed){
-  Dinamic.call(this, width, height, img, x, y, rotX, rotY, degree)
+function Bullet (x, y, degree, speed){
+  let img = 'bullet.png'
+  let width = 30
+  let height = 7
+  Dinamic.call(this, width, height, img, x, y, degree)
   this.speed = speed || 100;
   this.bulletGo = false;
 }
@@ -27,14 +30,14 @@ Bullet.prototype.newPos = function() {
       this.stopBullet();
       box.destroy()
     }
-    if(objects.blocks[i].lifes >= 4){
+    if(objects.blocks[i].lifes == 0){
       objects.blocks.splice(i, 1)
     }
   }) 
   //  Trees countdown
   objects.trees.some(tree =>{
     if(this.crashWith(tree)){
-      this.speed -= 15
+      this.speed -= 25
     }
   })
 }
