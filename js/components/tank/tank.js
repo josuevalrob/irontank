@@ -43,7 +43,7 @@ Tank.prototype.shooting = function() {
 }   
 
 Tank.prototype.paint = function() {
-  // this.update()
+  this.update()
   this.header.paint(this.x, this.y, this.header.degree)
 }
 

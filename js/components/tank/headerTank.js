@@ -1,4 +1,5 @@
 import {Dinamic} from '../dinamic.js';
+import {Bullet} from './bullet.js';
 import {canvas} from '../../canvas.js';
 
 // Okey, this get heavy now. 
@@ -16,21 +17,44 @@ HeaderTank.prototype.paint = function(x, y, dgr) {
   this.y = y
   this.degree = dgr
   this.update()
+  // this.myBullet = undefined;
 }
 
 HeaderTank.prototype.turnRight = function(){ 
   this.degree += 5;  
-  // debugger
 }
 HeaderTank.prototype.turnLeft = function(){ 
   this.degree -= 5;
 }
 HeaderTank.prototype.update = function () {  
+  this.rotX = this.width / -5;
+  this.rotY = this.height / -2;
   canvas.context.save();
-  canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
-  canvas.context.translate(this.x, this.y); 
+  // canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
+  canvas.context.translate(this.x + this.rotX, this.y); 
   canvas.context.rotate(this.degree * (Math.PI / 180));
   canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
   canvas.context.restore(); 
 }
+
+// HeaderTank.prototype.shot = function() {
+//   if(!this.myBullet){
+//     this.myBullet = new Bullet(this.x, this.y, this.degree);
+//     this.myBullet.stopBullet(); //bullet go => true!
+//     this.shooting();
+//   }       
+// }
+// HeaderTank.prototype.shooting = function() {
+//   if(this.myBullet.bulletGo) {
+//     this.myBullet.speed -= 8
+//     this.myBullet.newPos()  
+//     if(this.myBullet !=undefined && this.myBullet.speed > 1) {
+//       requestAnimationFrame(this.shooting.bind(this));
+//     } else {
+//       this.myBullet.stopBullet();
+//       this.myBullet = undefined;
+//     }
+//   }
+// }   
+
 export {HeaderTank}
