@@ -19,6 +19,12 @@ let keyActions;
         e.preventDefault();
         tank.shot();  
       break;
+      case 65: //Up key
+        tank.header.turnRight();      
+      break;
+      case 68: //Up key
+        tank.header.turnLeft();      
+      break;
       case 32: //logs
         e.preventDefault();
       break;

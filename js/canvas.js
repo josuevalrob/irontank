@@ -6,7 +6,6 @@ let canvas = {
     canvas : document.createElement('canvas'), 
     pause : true,
     border : new Border()
-
 }
 
 canvas.start = function () {

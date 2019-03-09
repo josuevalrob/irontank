@@ -15,9 +15,11 @@ function Tank (x, y, rotX, rotY, degree){
 }
 Tank.prototype.turnRight = function(){ 
   this.degree += 90;
+  this.header.degree = this.degree
 }
 Tank.prototype.turnLeft = function(){ 
   this.degree -= 90;
+  this.header.degree = this.degree
 }
 
 Tank.prototype.shot = function() {
@@ -41,8 +43,10 @@ Tank.prototype.shooting = function() {
 }   
 
 Tank.prototype.paint = function() {
-  this.update()
-  this.header.paint(this.x, this.y, this.degree)
+  // this.update()
+  this.header.paint(this.x, this.y, this.header.degree)
 }
+
+// Border limit
 
 export {Tank}

@@ -1,4 +1,5 @@
 import {Dinamic} from '../dinamic.js';
+import {canvas} from '../../canvas.js';
 
 // Okey, this get heavy now. 
 HeaderTank.prototype = Object.create(Dinamic.prototype);
@@ -17,4 +18,19 @@ HeaderTank.prototype.paint = function(x, y, dgr) {
   this.update()
 }
 
+HeaderTank.prototype.turnRight = function(){ 
+  this.degree += 5;  
+  // debugger
+}
+HeaderTank.prototype.turnLeft = function(){ 
+  this.degree -= 5;
+}
+HeaderTank.prototype.update = function () {  
+  canvas.context.save();
+  canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
+  canvas.context.translate(this.x, this.y); 
+  canvas.context.rotate(this.degree * (Math.PI / 180));
+  canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
+  canvas.context.restore(); 
+}
 export {HeaderTank}
