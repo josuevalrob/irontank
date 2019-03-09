@@ -5,7 +5,7 @@ import {keyActions} from './helpers/keyAction.js' //I dont know how the fuck thi
 
 randomMap();
 
-let tank = new Tank('body.png', 200, 120, 0)
+let tank = new Tank(200, 120, 0)
 function startGame(){
     canvas.start();
 }
@@ -14,7 +14,7 @@ function updateGame (){
   if(canvas.pause)  {
     canvas.clear()
     canvas.bkgDraw() 
-    tank.update();
+    tank.paint();
     
     if(tank.myBullet != undefined)
       tank.myBullet.update();

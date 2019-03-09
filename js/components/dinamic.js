@@ -17,7 +17,7 @@ function Dinamic (width, height, img, x, y, rotX, rotY, degree){
 
 Dinamic.prototype.update = function () {  
   canvas.context.save();
-  canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
+  // canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
   canvas.context.translate(this.x, this.y); 
   canvas.context.rotate(this.degree * (Math.PI / 180));
   canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
