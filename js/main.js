@@ -16,8 +16,8 @@ function updateGame (){
     canvas.bkgDraw() 
     tank.paint();
     
-    if(tank.myBullet != undefined)
-      tank.myBullet.update();
+    if(tank.header.myBullet != undefined)
+      tank.header.myBullet.update();
     
     objectsKeys.forEach( e => {
       objects[e].forEach((_, i) => {

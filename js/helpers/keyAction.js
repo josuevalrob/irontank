@@ -17,7 +17,7 @@ let keyActions;
       break;
       case 40: //down key
         e.preventDefault();
-        tank.shot();  
+        tank.header.shot();  
       break;
       case 65: //Up key
         tank.header.turnRight();      

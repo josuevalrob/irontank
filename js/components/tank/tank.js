@@ -9,13 +9,10 @@ function Tank (x, y, rotX, rotY, degree){
   let height = 48
   Dinamic.call(this, width, height, img, x, y, rotX, rotY, degree);
   this.speed = 3;
-  this.myBullet = undefined;
   this.header = new HeaderTank(this.x, this.y, this.degree)
-
 }
 Tank.prototype.paint = function() {
   this.update()
-  // this.header.paint(this.x, this.y, this.header.degree)
   this.header.paint(this.x, this.y, this.header.degree)
 }
 
@@ -24,31 +21,6 @@ Tank.prototype.turnRight = function(){
 }
 Tank.prototype.turnLeft = function(){ 
   this.degree -= 90;
-  // this.header.degree = this.header.degree + this.degree
 }
-// This should go to the header
-Tank.prototype.shot = function() {
-  if(!this.myBullet){
-    this.myBullet = new Bullet(this.x, this.y, this.degree);
-    this.myBullet.stopBullet(); //bullet go => true!
-    this.shooting();
-  }       
-}
-Tank.prototype.shooting = function() {
-  if(this.myBullet.bulletGo) {
-    this.myBullet.speed -= 8
-    this.myBullet.newPos()  
-    if(this.myBullet !=undefined && this.myBullet.speed > 1) {
-      requestAnimationFrame(this.shooting.bind(this));
-    } else {
-      this.myBullet.stopBullet();
-      this.myBullet = undefined;
-    }
-  }
-}   
-
-
-
-// Border limit
-
+// border limit
 export {Tank}
