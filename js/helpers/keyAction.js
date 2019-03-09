@@ -1,33 +1,48 @@
 import {tank} from '../main.js';
-import {objects, objectsKeys} from './randomMap.js'
 
 let keyActions;
+let keyUp;
+let supporA = false;
   // we will create the canvas onece it is loaded. 
-  document.onkeydown = function keyActions (e) {
-    switch (e.keyCode) {
-      case 39: //right key
-        e.preventDefault()
-        tank.turnRight();
-      break;
-      case 37: //left key
-        tank.turnLeft();
-      break;
-      case 38: //Up key
-        tank.newPos();      
-      break;
-      case 40: //down key
-        e.preventDefault();
-        tank.header.shot();  
-      break;
-      case 65: //Up key
+document.onkeydown = function keyActions (e) {
+  e.preventDefault()
+  switch (e.keyCode) {
+    case 18: // alt
+      supporA = true;
+      console.log(supporA)
+    break;
+    case 39: //right key
+      if(supporA){
         tank.header.turnRight();      
-      break;
-      case 68: //Up key
+      } else {
+        tank.turnRight();
+      }
+    break;
+    case 37: //left key
+      if(supporA){
         tank.header.turnLeft();      
-      break;
-      case 32: //logs
-        e.preventDefault();
-      break;
-    }
+      } else {
+        tank.turnLeft();
+      }
+    break;
+    case 38: //Up key
+      tank.newPos();      
+    break;
+    case 40: //down key
+      tank.header.shot();  
+    break;    
+    // case 32: //logs
+    // break;
   }
-export {keyActions}
+}
+document.onkeyup = function keyUp (e) {
+  switch (e.keyCode) {
+    case 18: //logs
+      e.preventDefault();
+      supporA = false
+      console.log(supporA)
+    break;
+  }
+}
+
+export {keyActions, keyUp}

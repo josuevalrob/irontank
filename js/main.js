@@ -1,7 +1,7 @@
 import {canvas} from './canvas.js';
 import {Tank} from './components/tank/tank.js';
 import {randomMap, objects, objectsKeys} from './helpers/randomMap.js'
-import {keyActions} from './helpers/keyAction.js' //I dont know how the fuck this works
+import * as keys from './helpers/keyAction.js' //I dont know how the fuck this works
 
 randomMap();
 
