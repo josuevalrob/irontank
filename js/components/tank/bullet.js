@@ -1,5 +1,5 @@
-import {Dinamic} from './dinamic.js';
-import {objects, objectsKeys} from '../helpers/randomMap.js';
+import {Dinamic} from '../dinamic.js';
+import {objects, objectsKeys} from '../../helpers/randomMap.js';
 
 // A bullet is an object from the tank. 
 // Maybe it should be inharance from the tank, and not from the components. 

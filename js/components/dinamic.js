@@ -46,6 +46,7 @@ Dinamic.prototype.crashWith = function (obstacle) {
 }
 
 
+
 Dinamic.prototype.stop = function () {
   debugger
   this.x = this.x;

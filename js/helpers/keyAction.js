@@ -21,7 +21,6 @@ let keyActions;
       break;
       case 32: //logs
         e.preventDefault();
-        objects.blocks[0].debbug();  
       break;
     }
   }
