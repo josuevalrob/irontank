@@ -16,6 +16,13 @@ HeaderTank.prototype.paint = function(x, y, dgr) {
   this.x = x
   this.y = y
   this.degree = dgr
+  // change the center point
+  // 0 degrees
+  this.rotX = this.width / -5;
+  this.rotY = this.height / -2;
+  // 90 degrees
+  // this.rotX = this.width / -5
+  // this.rotY = this.width / -2
   this.update()
   // this.myBullet = undefined;
 }
@@ -27,12 +34,10 @@ HeaderTank.prototype.turnLeft = function(){
   this.degree -= 5;
 }
 HeaderTank.prototype.update = function () {  
-  this.rotX = this.width / -5;
-  this.rotY = this.height / -2;
   canvas.context.save();
-  // canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
   canvas.context.translate(this.x + this.rotX, this.y); 
   canvas.context.rotate(this.degree * (Math.PI / 180));
+  // canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
   canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
   canvas.context.restore(); 
 }

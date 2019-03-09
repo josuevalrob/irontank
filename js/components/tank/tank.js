@@ -13,15 +13,20 @@ function Tank (x, y, rotX, rotY, degree){
   this.header = new HeaderTank(this.x, this.y, this.degree)
 
 }
+Tank.prototype.paint = function() {
+  this.update()
+  // this.header.paint(this.x, this.y, this.header.degree)
+  this.header.paint(this.x, this.y, this.header.degree)
+}
+
 Tank.prototype.turnRight = function(){ 
   this.degree += 90;
-  this.header.degree = this.degree
 }
 Tank.prototype.turnLeft = function(){ 
   this.degree -= 90;
-  this.header.degree = this.degree
+  this.header.degree = this.header.degree + this.degree
 }
-
+// This should go to the header
 Tank.prototype.shot = function() {
   if(!this.myBullet){
     this.myBullet = new Bullet(this.x, this.y, this.degree);
@@ -42,10 +47,7 @@ Tank.prototype.shooting = function() {
   }
 }   
 
-Tank.prototype.paint = function() {
-  this.update()
-  this.header.paint(this.x, this.y, this.header.degree)
-}
+
 
 // Border limit
 
