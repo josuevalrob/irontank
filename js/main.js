@@ -5,7 +5,7 @@ import * as keys from './helpers/keyAction.js' //I dont know how the fuck this w
 
 randomMap();
 
-let tank = new Tank(200, 120, 0)
+let tank = new Tank(900, 550, 0)
 function startGame(){
     canvas.start();
 }

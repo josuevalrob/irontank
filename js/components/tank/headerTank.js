@@ -20,10 +20,7 @@ HeaderTank.prototype.paint = function(x, y, dgr) {
   // change the center point
   this.rotX = this.width / -5;
   this.rotY = this.height / -2;
-
-  // 180 degrees
   this.update()
-  // this.myBullet = undefined;
 }
 HeaderTank.prototype.turnRight = function(){ 
   this.degree += 5;  

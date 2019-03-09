@@ -7,12 +7,10 @@ Dinamic.prototype = Object.create(Component.prototype);
 function Dinamic (width, height, img, x, y, rotX, rotY, degree){
   Component.call(this, width, height, img, x, y, rotX, rotY, degree);
 // Current Position -> this should be in a function??
-  this.a = this.x
-  this.b = this.y
-  this.left   = function() { return this.a + this.rotX };
-  this.right  = function() { return (this.a + this.rotX + this.width) };
-  this.top    = function() { return this.b + this.rotY };
-  this.bottom = function() { return (this.b + this.rotY + this.height) };
+  this.left   = function() { return this.x + this.rotX };
+  this.right  = function() { return (this.x + this.rotX + this.width) };
+  this.top    = function() { return this.y + this.rotY };
+  this.bottom = function() { return (this.y + this.rotY + this.height) };
 }
 
 Dinamic.prototype.update = function () {  
@@ -27,8 +25,10 @@ Dinamic.prototype.update = function () {
 Dinamic.prototype.newPos = function() {
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);
   this.y += this.speed * Math.sin(this.degree * Math.PI/180);
-  this.a = this.x //+  (Math.sin(this.degree) * Math.hypot(this.rotX, this.rotY)) + (Math.cos(this.degree) * Math.hypot(this.rotX, this.rotY))
-  this.b = this.y //+ (Math.sin(this.degree) * Math.hypot(this.rotX, this.rotY)) + (Math.cos(this.degree) * Math.hypot(this.rotX, this.rotY))
+  
+  if (this.isOut()) 
+    this.stop()
+
   objectsKeys.forEach( e => {
     objects[e].some(o => {
       if(this.crashWith(o))
@@ -45,12 +45,19 @@ Dinamic.prototype.crashWith = function (obstacle) {
           (this.left()   > obstacle.right()))
 }
 
-
+// border limit
+Dinamic.prototype.isOut = function (){
+    return ( this.top() < 30    ||
+            this.left() < 30  ||
+            this.bottom() > (window.innerHeight - 30) ||
+            this.right() > (window.innerWidth - 30)
+    ) 
+}
 
 Dinamic.prototype.stop = function () {
-  debugger
-  this.x = this.x;
-  this.y = this.y;
+  this.x -= this.speed * Math.cos(this.degree * Math.PI/180);
+  this.y -= this.speed * Math.sin(this.degree * Math.PI/180);
+ 
 }
 
 export {Dinamic};

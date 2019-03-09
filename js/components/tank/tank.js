@@ -1,6 +1,6 @@
 import {Dinamic} from '../dinamic.js';
-import {Bullet} from './bullet.js';
 import {HeaderTank} from './headerTank.js'
+
 Tank.prototype = Object.create(Dinamic.prototype); 
 
 function Tank (x, y, rotX, rotY, degree){
@@ -22,5 +22,5 @@ Tank.prototype.turnRight = function(){
 Tank.prototype.turnLeft = function(){ 
   this.degree -= 90;
 }
-// border limit
+
 export {Tank}
