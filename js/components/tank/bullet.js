@@ -12,8 +12,8 @@ Bullet.prototype = Object.create(Dinamic.prototype);
 
 function Bullet (x, y, degree, speed){
   let img = 'bullet.png'
-  let width = 30
-  let height = 7
+  let width = 15
+  let height = 15
   Dinamic.call(this, width, height, img, x, y, degree)
   this.speed = speed || 100;
   this.bulletGo = false;
@@ -21,9 +21,7 @@ function Bullet (x, y, degree, speed){
 
 Bullet.prototype.newPos = function() {
   this.y += this.speed * Math.sin(this.degree * Math.PI/180);
-  this.x += this.speed * Math.cos(this.degree * Math.PI/180);  
-  this.a = this.x
-  this.b = this.y
+  this.x += this.speed * Math.cos(this.degree * Math.PI/180);    
   // Blocks destruction
   objects.blocks.some((box, i) => {
     if(this.crashWith(box)){

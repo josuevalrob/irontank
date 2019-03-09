@@ -8,7 +8,7 @@ HeaderTank.prototype = Object.create(Dinamic.prototype);
 function HeaderTank (x, y, degree){
   let img = 'tank/head.png'
   let width = 50
-  let height = 25
+  let height = 15
   Dinamic.call(this, width, height, img, x, y, degree)
   this.myBullet = undefined;
 }
