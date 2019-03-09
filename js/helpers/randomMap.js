@@ -7,8 +7,12 @@ let objects = {}
 let objectsKeys
 function randomMap () { 
   shuffleArry(positions.random) 
-  objects.trees = positions.random.map(e =>{
-    return new Tree(50, 50, 'tree.png', e[0], e[1])
+  objects.trees = positions.random.map((e, i) =>{
+    if(i%2 == 0){
+      return new Tree(50, 50, 'tree.png', e[0], e[1])
+    } else {
+      return new Tree(35, 35, 'treesmall.png', e[0], e[1])
+    }
   })
   
   objects.blocks = positions.square.map(e=>{

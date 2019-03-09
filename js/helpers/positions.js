@@ -1,3 +1,4 @@
+
 let positions = {
   random: [
     [200, 200],
