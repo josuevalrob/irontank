@@ -24,7 +24,7 @@ Tank.prototype.turnRight = function(){
 }
 Tank.prototype.turnLeft = function(){ 
   this.degree -= 90;
-  this.header.degree = this.header.degree + this.degree
+  // this.header.degree = this.header.degree + this.degree
 }
 // This should go to the header
 Tank.prototype.shot = function() {
