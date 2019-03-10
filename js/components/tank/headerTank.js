@@ -1,12 +1,11 @@
 import {Dinamic} from '../dinamic.js';
 import {Bullet} from './bullet.js';
-import {canvas} from '../../canvas.js';
 
 // Okey, this get heavy now. 
 HeaderTank.prototype = Object.create(Dinamic.prototype);
 
-function HeaderTank (x, y, degree){
-  let img = 'tank/head.png'
+function HeaderTank (x, y, img, degree){
+  img = 'tank/' + img
   let width = 50
   let height = 15
   Dinamic.call(this, width, height, img, x, y, degree)

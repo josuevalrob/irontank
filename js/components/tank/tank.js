@@ -3,13 +3,14 @@ import {HeaderTank} from './headerTank.js'
 
 Tank.prototype = Object.create(Dinamic.prototype); 
 
-function Tank (x, y, rotX, rotY, degree){
-  let img = 'tank/body.png'
+function Tank (x, y, img, imgHead, degree){
+  img = 'tank/' + img
   let width = 50
   let height = 48
-  Dinamic.call(this, width, height, img, x, y, rotX, rotY, degree);
+  Dinamic.call(this, width, height, img, x, y, degree);
   this.speed = 3;
-  this.header = new HeaderTank(this.x, this.y, this.degree)
+  this.imgHead = imgHead
+  this.header = new HeaderTank(this.x, this.y, this.imgHead, this.degree)
 }
 Tank.prototype.paint = function() {
   this.update()
