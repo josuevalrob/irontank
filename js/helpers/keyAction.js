@@ -1,4 +1,4 @@
-import {tank} from '../main.js';
+import {playerOne, playerTwo} from '../main.js';
 
 let keyActions;
 let keyUp;
@@ -7,32 +7,57 @@ let supporA = false;
 document.onkeydown = function keyActions (e) {
   e.preventDefault()
   switch (e.keyCode) {
+    // player one
     case 18: // alt
       supporA = true;
       console.log(supporA)
     break;
     case 39: //right key
       if(supporA){
-        tank.header.turnRight();      
+        playerOne.header.turnRight();      
       } else {
-        tank.turnRight();
+        playerOne.turnRight();
       }
     break;
     case 37: //left key
       if(supporA){
-        tank.header.turnLeft();      
+        playerOne.header.turnLeft();      
       } else {
-        tank.turnLeft();
+        playerOne.turnLeft();
       }
     break;
     case 38: //Up key
-      tank.newPos();      
+      playerOne.newPos();      
     break;
     case 40: //down key
-      tank.header.shot();  
+      playerOne.header.shot();  
     break;    
-    // case 32: //logs
-    // break;
+    
+    // Player two
+    case 70: // F
+      supporA = true;
+      console.log(supporA)
+    break;
+    case 68: //D
+      if(supporA){
+        playerTwo.header.turnRight();      
+      } else {
+        playerTwo.turnRight();
+      }
+    break;
+    case 65: //A key
+      if(supporA){
+        playerTwo.header.turnLeft();      
+      } else {
+        playerTwo.turnLeft();
+      }
+    break;
+    case 87: //W key
+      playerTwo.newPos();      
+    break;
+    case 83: //s key
+      playerTwo.header.shot();  
+    break;    
   }
 }
 document.onkeyup = function keyUp (e) {

@@ -3,22 +3,29 @@ import {Tank} from './components/tank/tank.js';
 import {randomMap, objects, objectsKeys} from './helpers/randomMap.js'
 import * as keys from './helpers/keyAction.js' //I dont know how the fuck this works
 
-randomMap();
-
-let tank = new Tank(200, 100, 'body.png', 'head.png' , 0)
+let playerOne 
+let playerTwo
 function startGame(){
+    randomMap();
     canvas.start();
+    playerOne = new Tank(200, 100, 'body2.png', 'head2.png' , 0)
+    playerTwo = new Tank(window.innerWidth - 200, innerHeight - 100, 'body.png', 'head.png' , 180)
 }
 
 function updateGame (){
   if(canvas.pause)  {
     canvas.clear()
     canvas.bkgDraw() 
-    tank.paint();
-    
-    if(tank.header.myBullet != undefined)
-      tank.header.myBullet.update();
-    
+    if(playerOne != undefined && playerTwo != undefined){
+      playerOne.paint();
+      playerTwo.paint();
+      
+      if(playerOne.header.myBullet != undefined)
+        playerOne.header.myBullet.update();
+      
+      if(playerTwo.header.myBullet != undefined)
+        playerTwo.header.myBullet.update();
+    }
     objectsKeys.forEach( e => {
       objects[e].forEach((_, i) => {
           if(objects[e][i] != undefined){
@@ -31,9 +38,6 @@ function updateGame (){
   }   
 }
 document.addEventListener('DOMContentLoaded', function () {
-  // we will create the canvas onece it is loaded. 
   startGame();
 })
-
-
-export {updateGame, objects, tank};
+export {updateGame, objects, playerOne, playerTwo};
