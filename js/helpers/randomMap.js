@@ -5,6 +5,11 @@ import {Tree} from '../components/tree.js';
 // Create an array of possible positions. 
 let objects = {}
 let objectsKeys
+let hor = window.innerWidth
+let ver = (window.innerHeight / 2) - 50
+let horTotal = Math.floor(hor / 50)
+let horMid = Math.floor(horTotal/2)
+let increase = 0
 function randomMap () { 
   shuffleArry(positions.random) 
   objects.trees = positions.random.map((e, i) =>{
@@ -14,14 +19,20 @@ function randomMap () {
       return new Tree(35, 35, 'treesmall.png', e[0], e[1])
     }
   })
-  
-  objects.blocks = positions.square.map(e=>{
-    return new ironBlock(e[0], e[1])
-  })
 
-  objects.blocks = objects.blocks.concat(positions.line.map(e => {
-    return new woodBlock(e[0], e[1])
-  }))
+  objects.blocks = positions.line.map(e => {
+        return new woodBlock(e[0], e[1])
+      }).concat( 
+        Array.from(Array(horMid), (_,i)=>{
+          increase = i * 50
+          return new ironBlock(hor - increase, ver)
+          })
+      ).concat(
+        Array.from(Array(horMid), (_,i)=>{
+          increase = i * 50
+          return new ironBlock(hor - increase, ver + 50)
+        })
+      )
 
   objectsKeys = Object.keys(objects);
 }

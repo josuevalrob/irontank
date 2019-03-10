@@ -1,20 +1,33 @@
-
+// [x, y]
+let hor = (window.innerWidth / 2) - 50
+let ver = (window.innerHeight / 2) - 50
 let positions = {
   random: [
+    [630, 500],
+    [100, 400],
     [200, 200],
     [350, 400],
-    [30, 600],
-    [100, 500],
+    [400, 400],
     [500, 200],
     [650, 400],
-    [700, 600],
-    [400, 500],
+    [700, 500],
   ], 
   square : [
-    [600, 200], 
-    [650, 200],
-    [650, 250],
-    [600, 250]
+    [hor, ver], 
+    [hor + 50, ver],
+    [hor + 50, ver + 50],
+    [hor, ver + 50],
+  ],
+  cross: [
+    [hor, ver], 
+    [hor + 50, ver],
+    [hor + 50, ver + 50],
+    [hor, ver + 50],
+    // line
+    [hor - 50, ver],
+    [hor - 100, ver],
+    [hor - 150, ver],
+    [hor - 200, ver],
   ],
   line : [
     [50, 200],
@@ -24,7 +37,6 @@ let positions = {
     [250, 200],
     [300, 200]
   ], 
-  cross : []
 }
 
 export {positions}

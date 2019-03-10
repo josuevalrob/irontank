@@ -21,7 +21,9 @@ function updateGame (){
     
     objectsKeys.forEach( e => {
       objects[e].forEach((_, i) => {
-          objects[e][i].update()
+          if(objects[e][i] != undefined){
+            objects[e][i].update()
+            }
       })
     })
 
