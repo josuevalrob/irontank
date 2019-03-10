@@ -1,12 +1,6 @@
 import {Dinamic} from '../dinamic.js';
 import {objects, objectsKeys} from '../../helpers/randomMap.js';
-
-// A bullet is an object from the tank. 
-// Maybe it should be inharance from the tank, and not from the components. 
-// it has two functions from the tank, like update and newPos. 
-// And this functionalities are not from Components, cuz them involve the movement of an object. 
-// and right now, the only object that moves are tank and bullets. 
-
+import {players} from '../../main.js'
 
 Bullet.prototype = Object.create(Dinamic.prototype); 
 
@@ -22,6 +16,16 @@ function Bullet (x, y, degree, speed){
 Bullet.prototype.newPos = function() {
   this.y += this.speed * Math.sin(this.degree * Math.PI/180);
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);    
+  
+  // Tank destruction
+  players.some((e, i) => {
+    if(this.crashWith(e)){
+      e.lifes -- //This should be function in the tank.       
+      if (e.lifes == 0)
+        players.splice(i, 1)
+    }
+  })
+  
   // Blocks destruction
   objects.blocks.some((box, i) => {
     if(this.crashWith(box)){

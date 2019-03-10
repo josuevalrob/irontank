@@ -38,7 +38,7 @@ HeaderTank.prototype.shooting = function() {
   if(this.myBullet.bulletGo) {
     this.myBullet.speed -= 8
     this.myBullet.newPos()  
-    if(this.myBullet !=undefined && this.myBullet.speed > 1) {
+    if(this.myBullet !=undefined && this.myBullet.speed > 0) {
       requestAnimationFrame(this.shooting.bind(this));
     } else {
       this.myBullet.stopBullet();
