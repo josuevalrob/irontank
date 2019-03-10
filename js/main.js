@@ -8,8 +8,8 @@ let playerTwo
 function startGame(){
     randomMap();
     canvas.start();
-    playerOne = new Tank(200, 100, 'body2.png', 'head2.png' , 0)
-    playerTwo = new Tank(window.innerWidth - 200, innerHeight - 100, 'body.png', 'head.png' , 180)
+    playerTwo = new Tank(200, 100, 'body2.png', 'head2.png' , 0)
+    playerOne = new Tank(window.innerWidth - 200, innerHeight - 100, 'body.png', 'head.png' , 180)
 }
 
 function updateGame (){
