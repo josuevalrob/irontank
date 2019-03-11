@@ -1,9 +1,11 @@
 # irontank
 This is the final project from the first module of the web development part time course in IronHack. Pure Javascript. Enjoy
 
-# Starting: 
+## Starting: 
+```
     yarn install 
     gulp start
+```
 
 # What is going on?. 
 Well, this will enable a local environment ready for playing a little bit. 
