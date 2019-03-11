@@ -13,6 +13,9 @@ body {
   text-align: center;
   padding-top: 5em;
   z-index: 2;
+  .hide {
+    display: none;
+  }
 }
 .play {
     position: absolute;
@@ -23,4 +26,14 @@ body {
     padding-top: 2em;
     z-index: 2;
     right: 0;
+  .hide {
+    display: block;
+    display: flex;
+  }
+  .left {
+    width: 50%;
+  }
+  .right {
+    width: 50%;
+  }
 }

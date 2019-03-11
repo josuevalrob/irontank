@@ -38,7 +38,7 @@ document.onkeydown = function keyActions (e) {
       newPosA = true  
     break;
     case 40: //down key
-      time = true
+      timeA = true
     break;    
     
     // Player two

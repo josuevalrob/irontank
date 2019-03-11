@@ -7,3 +7,9 @@
 //     // console.log()
 //   )
 // })
+function myFunction() {
+   var element = document.getElementById("play");
+   element.classList.toggle("play");
+   element.classList.toggle("stop");
+   element.classList.toggle('hide')
+}

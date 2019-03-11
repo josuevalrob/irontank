@@ -12,6 +12,8 @@ body {
   text-align: center;
   padding-top: 5em;
   z-index: 2; }
+  .stop .hide {
+    display: none; }
 
 .play {
   position: absolute;
@@ -22,3 +24,10 @@ body {
   padding-top: 2em;
   z-index: 2;
   right: 0; }
+  .play .hide {
+    display: block;
+    display: flex; }
+  .play .left {
+    width: 50%; }
+  .play .right {
+    width: 50%; }
