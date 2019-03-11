@@ -4,11 +4,21 @@ import {game} from '../main.js';
 
 let keyActions;
 let keyUp;
+
 let supporA = false
 let supporB = false
 
 let newPosA = false
 let newPosB = false
+
+let turnLeftA = false
+let turnRightA = false
+
+let turnLeftB = false
+let turnRightB = false
+
+let timeA = false
+let timeB = false
 
 // we will create the canvas onece it is loaded. 
 document.onkeydown = function keyActions (e) {
@@ -19,24 +29,16 @@ document.onkeydown = function keyActions (e) {
       supporA = true;
     break;
     case 39: //right key
-      if(supporA){
-        game.players[0].header.turnRight();      
-      } else {
-        game.players[0].turnRight();
-      }
+      turnRightA = true
     break;
     case 37: //left key
-      if(supporA){
-        game.players[0].header.turnLeft();      
-      } else {
-        game.players[0].turnLeft();
-      }
+      turnLeftA = true
     break;
     case 38: //Up key
       newPosA = true  
     break;
     case 40: //down key
-      game.players[0].header.shot();  
+      time = true
     break;    
     
     // Player two
@@ -44,30 +46,56 @@ document.onkeydown = function keyActions (e) {
       supporB = true;
     break;
     case 68: //D
-      if(supporB){
-        game.players[1].header.turnRight();      
-      } else {
-        game.players[1].turnRight();
-      }
+      turnRightB = true
     break;
     case 65: //A key
-      if(supporB){
-        game.players[1].header.turnLeft();      
-      } else {
-        game.players[1].turnLeft();
-      }
+      turnLeftB = true;
     break;
     case 87: //W key
       newPosB = true      
     break;
     case 83: //s key
-      game.players[1].header.shot();  
+      timeB = true
     break;    
   }
   if(newPosB)
     game.players[1].newPos();      
   if(newPosA)
     game.players[0].newPos();    
+  
+  if(turnRightA) {
+    if(supporA){
+      game.players[0].header.turnRight();      
+    } else {
+      game.players[0].turnRight();
+    }
+  }
+  if(turnLeftA){
+    if(supporA){
+      game.players[0].header.turnLeft();      
+    } else {
+      game.players[0].turnLeft();
+    }
+  }
+  if(turnRightB) {
+    if(supporB){
+      game.players[1].header.turnRight();      
+    } else {
+      game.players[1].turnRight();
+    }
+  }
+  if(turnLeftB) {
+    if(supporB){
+      game.players[1].header.turnLeft();      
+    } else {
+      game.players[1].turnLeft();
+    }
+  }
+  if(timeA)
+    game.players[0].header.shot();  
+  if(timeB)
+    game.players[1].header.shot();  
+
 }
 
 document.onkeyup = function keyUp (e) {
@@ -85,6 +113,24 @@ document.onkeyup = function keyUp (e) {
     case 87: 
       newPosB = false
     break;
+    case 39: 
+      turnRightA = false
+    break;
+    case 37: 
+      turnLeftA = false
+    break;
+    case 68: //D
+      turnRightB = false
+    break;
+    case 65: //A key
+      turnLeftB = false
+    break;
+    case 40: //down key
+      timeA = false
+    break;   
+    case 83: //s key
+      timeB = false
+    break;    
   }
 }
 export {keyActions, keyUp}
