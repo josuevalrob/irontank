@@ -6,7 +6,7 @@ Dinamic.prototype = Object.create(Component.prototype);
 
 function Dinamic (width, height, img, x, y, rotX, rotY, degree){
   Component.call(this, width, height, img, x, y, rotX, rotY, degree);
-// Current Position -> this should be in a function??
+// Current Position -> should it be in a prototype??
   this.left   = function() { return this.x + this.rotX };
   this.right  = function() { return (this.x + this.rotX + this.width) };
   this.top    = function() { return this.y + this.rotY };
@@ -15,7 +15,6 @@ function Dinamic (width, height, img, x, y, rotX, rotY, degree){
 
 Dinamic.prototype.update = function () {  
   canvas.context.save();
-  // canvas.context.strokeRect(this.a + this.rotX, this.y + this.rotY, this.width, this.height);
   canvas.context.translate(this.x, this.y); 
   canvas.context.rotate(this.degree * (Math.PI / 180));
   canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
@@ -38,14 +37,12 @@ Dinamic.prototype.newPos = function() {
 }
 
 Dinamic.prototype.crashWith = function (obstacle) {
-  // console.log(this.bottom(), this.top(), this.right(), this.left(), this.a, this.b)
   return !((this.bottom() < obstacle.top())   ||
           (this.top()    > obstacle.bottom()) ||
           (this.right()  < obstacle.left())   ||
           (this.left()   > obstacle.right()))
 }
 
-// border limit
 Dinamic.prototype.isOut = function (){
     return ( this.top() < 30    ||
             this.left() < 30  ||
@@ -57,7 +54,6 @@ Dinamic.prototype.isOut = function (){
 Dinamic.prototype.stop = function () {
   this.x -= this.speed * Math.cos(this.degree * Math.PI/180);
   this.y -= this.speed * Math.sin(this.degree * Math.PI/180);
- 
 }
 
 export {Dinamic};

@@ -1,6 +1,6 @@
 import {Dinamic} from '../dinamic.js';
 import {objects, objectsKeys} from '../../helpers/randomMap.js';
-import {game} from '../../main.js'
+// import {game} from '../../main.js'
 
 Bullet.prototype = Object.create(Dinamic.prototype); 
 
@@ -18,11 +18,12 @@ Bullet.prototype.newPos = function() {
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);    
   
   // Tank destruction
-  game.players.some((e, i) => {
+  window.players.some((e, i) => {
     if(this.crashWith(e)){
-      e.lifes -- //This should be function in the tank.       
+      e.lifes -- //This should be function in the tank.     
+      this.stopBullet()  
       if (e.lifes == 0)
-        game.players.splice(i, 1)
+        window.players.splice(i, 1)
     }
   })
   

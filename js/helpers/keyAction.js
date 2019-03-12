@@ -1,4 +1,4 @@
-import {game} from '../main.js';
+// import {game} from '../main.js';
 
 // This should be in other fucking file
 
@@ -59,42 +59,42 @@ document.onkeydown = function keyActions (e) {
     break;    
   }
   if(newPosB)
-    game.players[1].newPos();      
+    window.players[1].newPos();      
   if(newPosA)
-    game.players[0].newPos();    
+    window.players[0].newPos();    
   
   if(turnRightA) {
     if(supporA){
-      game.players[0].header.turnRight();      
+      window.players[0].header.turnRight();      
     } else {
-      game.players[0].turnRight();
+      window.players[0].turnRight();
     }
   }
   if(turnLeftA){
     if(supporA){
-      game.players[0].header.turnLeft();      
+      window.players[0].header.turnLeft();      
     } else {
-      game.players[0].turnLeft();
+      window.players[0].turnLeft();
     }
   }
   if(turnRightB) {
     if(supporB){
-      game.players[1].header.turnRight();      
+      window.players[1].header.turnRight();      
     } else {
-      game.players[1].turnRight();
+      window.players[1].turnRight();
     }
   }
   if(turnLeftB) {
     if(supporB){
-      game.players[1].header.turnLeft();      
+      window.players[1].header.turnLeft();      
     } else {
-      game.players[1].turnLeft();
+      window.players[1].turnLeft();
     }
   }
   if(timeA)
-    game.players[0].header.shot();  
+    window.players[0].header.shot();  
   if(timeB)
-    game.players[1].header.shot();  
+    window.players[1].header.shot();  
 
 }
 

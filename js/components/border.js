@@ -11,46 +11,17 @@ function Border (){
   let x = 0
   let y = 0
   Static.call(this, width, height, img, x, y)
-  // I need the width from the canvas
   this.screenWidth = window.innerWidth
   this.screenHeight = window.innerHeight
 }
 Border.prototype.update = function (){
   let ctx = canvas.context
-  // let newImage = new Image()
-  // newImage.src = '../assets/images/back/ds.png';
-  // this.rightUp(ctx, newImage)
-  // newImage = new Image()
-  // newImage.src = '../assets/images/back/di.png';
-  // this.rightDown(ctx, newImage)
-  // newImage = new Image()
-  // newImage.src = '../assets/images/back/is.png';
-  // this.leftUp(ctx, newImage)
-  // newImage = new Image()
-  // newImage.src = '../assets/images/back/ii.png';
-  // this.leftDown(ctx, newImage)
 
   this.Up(ctx)
   this.Down(ctx)
   this.Right(ctx) 
   this.Left(ctx)   
-  // this should be a constructor. fuck!!
 }
-
-// Border.prototype.rightUp = function (ctx, newImage) { 
-//   ctx.drawImage(newImage, this.screenWidth - this.width, this.y, this.width, this.height);
-// }
-
-//  Border.prototype.rightDown = function (ctx, newImage) {
-//   ctx.drawImage(newImage, this.screenWidth - this.width, this.screenHeight - this.height, this.width, this.height);
-//  }
-// Border.prototype.leftUp = function (ctx, newImage) { 
-//   ctx.drawImage(newImage, this.x, this.y, this.width, this.height);
-//  }
-
-//  Border.prototype.leftDown = function (ctx, newImage) {
-//   ctx.drawImage(newImage, this.x, this.screenHeight - this.height, this.width, this.height);
-//  }
 
 Border.prototype.Up = function (ctx) { 
   let newImage = new Image()

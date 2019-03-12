@@ -14,6 +14,5 @@ Static.prototype.update = function (){
     this.y, 
     this.width, 
     this.height);
-  // canvas.context.strokeRect(this.x, this.y, this.width, this.height);
 }
 export {Static}
