@@ -5,7 +5,7 @@ Border.prototype = Object.create(Static.prototype);
 function Border (){
   // this.currentImage = 0; //repetitive code
   this.imgArr = ['di.png', 'ds.png', 'ii.png', 'is.png', 'inf.png', 'ld.png', 'li.png', 'sup.png']
-  let img = 'back/' + this.imgArr[this.currentImage]
+  let img = './back/' + this.imgArr[this.currentImage]
   let width = 50
   let height = 50
   let x = 0

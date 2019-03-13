@@ -36,7 +36,7 @@ HeaderTank.prototype.shot = function() {
   let fromX = this.width * Math.cos(this.degree * Math.PI/180)
   let fromY = this.width * Math.sin(this.degree * Math.PI/180)
   if(!this.myBullet){
-    this.myBullet = new Bullet('bullet.png',this.x, this.y, this.degree);    
+    this.myBullet = new Bullet('bullet.png',this.x, this.y, this.degree, 50);    
     this.fire = new Bullet(
           'fire.png', 
           this.x + fromX, 
