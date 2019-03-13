@@ -43,7 +43,6 @@ Border.prototype.Down = function (ctx) {
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(0, 25, 17, this.screenHeight - (this.height ));
-  // ctx.strokeRect(this.screenWidth - this.width, this.width, this.width ,this.screenHeight - (this.height * 2));
  }
  Border.prototype.Right = function (ctx) { 
   //  This border sucks! 
@@ -52,6 +51,5 @@ Border.prototype.Down = function (ctx) {
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(this.screenWidth - 10, 25, 25 ,this.screenHeight - this.height);
-  // ctx.strokeRect(this.screenWidth - this.width, this.width, this.width ,this.screenHeight - (this.height * 2));
  }
 export {Border};

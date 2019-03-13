@@ -4,12 +4,12 @@ import {objects, objectsKeys} from '../../helpers/randomMap.js';
 
 Bullet.prototype = Object.create(Dinamic.prototype); 
 
-function Bullet (x, y, degree, speed){
-  let img = 'bullet.png'
+function Bullet (img, x, y, degree, speed = 100){
+  // let img = 'bullet.png'
   let width = 15
   let height = 15
   Dinamic.call(this, width, height, img, x, y, degree)
-  this.speed = speed || 100;
+  this.speed = speed;
   this.bulletGo = false;
 }
 
@@ -22,6 +22,7 @@ Bullet.prototype.newPos = function() {
     if(this.crashWith(e)){
       e.lifes -- //This should be function in the tank.     
       this.stopBullet()  
+      e.crash = true
       if (e.lifes == 0)
         window.players.splice(i, 1)
     }

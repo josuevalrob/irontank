@@ -1,15 +1,27 @@
 
-// const toggleClass = (el, className) => el.classList.toggle(className);
+var button = document.getElementById("main-button");
+var curText = button.innerText;
+var element = document.getElementById("play");
+    
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   document.getElementById('fakeStart').onclick(
-//     toggleClass(document.getElementsByClassName('play')[0], 'active')
-//     // console.log()
-//   )
-// })
-function myFunction() {
-   var element = document.getElementById("play");
-   element.classList.toggle("play");
-   element.classList.toggle("stop");
-   element.classList.toggle('hide')
+var blue = new Image()
+// blue.src = window.players
+
+
+function actionButton(){
+    button.addEventListener("click", function(){
+      element.classList.toggle("play");
+      element.classList.toggle("stop");
+      element.classList.toggle('hide')
+      if(this.innerText == curText){
+        button.innerText = "Pause Game";        
+      } else{ 
+        button.innerText = curText;
+      }  
+    }, false);
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  actionButton();
+})
