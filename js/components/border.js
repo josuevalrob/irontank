@@ -25,21 +25,21 @@ Border.prototype.update = function (){
 
 Border.prototype.Up = function (ctx) { 
   let newImage = new Image()
-      newImage.src = '../assets/images/back/sup.png'
+      newImage.src = './assets/images/back/sup.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(this.x, this.y, this.screenWidth, this.height - 23);
  }
 Border.prototype.Down = function (ctx) { 
   let newImage = new Image()
-      newImage.src = '../assets/images/back/sup.png'
+      newImage.src = './assets/images/back/sup.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(this.x, this.screenHeight - 25, this.screenWidth, this.height );
  }
  Border.prototype.Left = function (ctx) { 
   let newImage = new Image()
-      newImage.src = '../assets/images/back/left.png'
+      newImage.src = './assets/images/back/left.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(0, 25, 17, this.screenHeight - (this.height ));
@@ -47,7 +47,7 @@ Border.prototype.Down = function (ctx) {
  Border.prototype.Right = function (ctx) { 
   //  This border sucks! 
   let newImage = new Image()
-      newImage.src = '../assets/images/back/right.png'
+      newImage.src = './assets/images/back/right.png'
   let borderPtrn = ctx.createPattern(newImage, 'repeat')
   ctx.fillStyle= borderPtrn;  
   ctx.fillRect(this.screenWidth - 10, 25, 25 ,this.screenHeight - this.height);

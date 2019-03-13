@@ -21,6 +21,6 @@ Block.prototype.destroy = function () {
     this.currentImage += 1
     this.img = 'boxes/' + this.imgArr[this.currentImage];
     if (this.lifes > 0)
-      this.imageComp.src = '../assets/images/' + this.img;
+      this.imageComp.src = './assets/images/' + this.img;
 }
 export {Block};

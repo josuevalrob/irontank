@@ -10,7 +10,7 @@ let canvas = {
 
 canvas.start = function () {
     this.context = this.canvas.getContext('2d')
-    this.image.src = '../assets/images/back/main.png';  
+    this.image.src = './assets/images/back/main.png';  
     this.pause = true;     
     this.image.onload = updateGame();  
     document.getElementById('game-board').appendChild(this.canvas);
