@@ -3,7 +3,7 @@ function Component(width, height, img, x, y, degree = 90) {
   // Image properties
   this.img = img;
   this.imageComp = new Image();
-  this.imageComp.src = '../assets/images/' + this.img;
+  this.imageComp.src = './assets/images/' + this.img;
   // Size property
   this.width = width;
   this.height = height;
