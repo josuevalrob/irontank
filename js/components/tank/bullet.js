@@ -18,12 +18,12 @@ Bullet.prototype.newPos = function() {
   this.x += this.speed * Math.cos(this.degree * Math.PI/180);    
   
   // Tank destruction
-  window.players.some((e, i) => {
-    if(this.crashWith(e)){
-      e.lifes -- //This should be function in the tank.     
+  window.players.some((tank, i) => {
+    if(this.crashWith(tank)){
+      tank.lifes -- //This should be function in the tank.     
       this.stopBullet()  
-      e.crash = true
-      if (e.lifes == 0)
+      tank.crash = true
+      if (tank.lifes == 0)
         window.players.splice(i, 1)
     }
   })
@@ -32,17 +32,16 @@ Bullet.prototype.newPos = function() {
   objects.blocks.some((box, i) => {
     if(this.crashWith(box)){
       this.stopBullet();
+      box.crash = true
       box.destroy()
     }
-    if(objects.blocks[i].lifes == 0){
+    if(objects.blocks[i].lifes == 0)
       objects.blocks.splice(i, 1)
-    }
   }) 
   //  Trees countdown
   objects.trees.some(tree =>{
-    if(this.crashWith(tree)){
+    if(this.crashWith(tree))
       this.speed -= 25
-    }
   })
 }
 Bullet.prototype.stopBullet = function (){

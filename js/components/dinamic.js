@@ -19,6 +19,8 @@ Dinamic.prototype.update = function () {
   canvas.context.rotate(this.degree * (Math.PI / 180));
   canvas.context.drawImage(this.imageComp, this.rotX , this.rotY, this.width, this.height);
   canvas.context.restore(); 
+  if(this.crash)
+    this.impact()
 }
 
 Dinamic.prototype.newPos = function() {

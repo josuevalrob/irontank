@@ -1,5 +1,4 @@
 import {Static} from '../static.js'
-import {canvas} from '../../canvas.js';
 
 Block.prototype = Object.create(Static.prototype);
 function Block (x, y){
@@ -9,11 +8,6 @@ function Block (x, y){
   this.lifes = 0;
   let img = 'boxes/' + this.imgArr[0];
   Static.call(this, width, height, img, x, y)
-}
-Block.prototype.update = function (){
-  let ctx = canvas.context
-  ctx.drawImage(this.imageComp, this.x,this.y,this.width, this.height);
-  ctx.restore()
 }
 
 Block.prototype.destroy = function () {
