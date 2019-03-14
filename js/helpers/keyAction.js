@@ -1,7 +1,3 @@
-// import {game} from '../main.js';
-
-// This should be in other fucking file
-
 let keyActions;
 let keyUp;
 
@@ -19,7 +15,7 @@ let turnRightB = false
 
 let timeA = false
 let timeB = false
-
+let time
 // we will create the canvas onece it is loaded. 
 document.onkeydown = function keyActions (e) {
   e.preventDefault()
@@ -38,7 +34,9 @@ document.onkeydown = function keyActions (e) {
       newPosA = true  
     break;
     case 40: //down key
-      timeA = true
+      if(!time){ 
+        timeA = true
+        time = setTimeout(_=> time = undefined, 800)}
     break;    
     
     // Player two
@@ -55,7 +53,9 @@ document.onkeydown = function keyActions (e) {
       newPosB = true      
     break;
     case 83: //s key
-      timeB = true
+      if(!time){ 
+        timeB = true
+        time = setTimeout(_=> time = undefined, 800)}
     break;    
   }
   if(newPosB)

@@ -48,5 +48,4 @@ document.addEventListener('DOMContentLoaded', function () {
 var red = document.getElementById("red").getElementsByTagName('span')[0]
 var green = document.getElementById("green").getElementsByTagName('span')[0];
 
-// export {keyActions, keyUp}
 export {updateGame, objects};
