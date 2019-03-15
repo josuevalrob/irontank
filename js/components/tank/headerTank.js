@@ -9,19 +9,17 @@ function HeaderTank (x, y, img, degree){
   let width = 50
   let height = 15
   Dinamic.call(this, width, height, img, x, y, degree)
+  this.rotX = this.width / -5; //Center point
   this.myBullet = undefined
   this.fire = undefined  
 }
 
 HeaderTank.prototype.paint = function(x, y, dgr) {
-  this.x = x
+  this.x = x //New location
   this.y = y
-  this.degree = dgr
-  // change the center point
-  this.rotX = this.width / -5;
-  this.rotY = this.height / -2;
-  this.update() //esto pinta el header del tanke
-  if(this.myBullet != undefined){
+  this.degree = dgr //New degree
+  this.update() //Painting the header
+  if(this.myBullet != undefined){ //paint the bullet
     this.myBullet.update()
     this.fire.update()
   }
@@ -33,13 +31,18 @@ HeaderTank.prototype.turnLeft = function(){
   this.degree -= 5;
 }
 HeaderTank.prototype.shot = function() {
-  let fromX = this.width * Math.cos(this.degree * Math.PI/180)
-  let fromY = this.width * Math.sin(this.degree * Math.PI/180)
-  if(!this.myBullet){
-    this.myBullet = new Bullet('bullet.png',this.x, this.y, this.degree, 100);    
-    this.fire = new Bullet('fire.png', this.x + fromX, this.y + fromY, this.degree, 0);
+  if(!this.myBullet){  //Only if we dont have a bullet.  
+    let fromX = this.width * Math.cos(this.degree * Math.PI/180)
+    let fromY = this.width * Math.sin(this.degree * Math.PI/180)
+
+    this.myBullet = new Bullet('bullet.png', this.x + fromX, this.y + fromY, this.degree, 100);    
     this.myBullet.stopBullet(); //bullet go => true!
     this.shooting();
+
+    this.fire = new Bullet('fire.png', this.x + fromX, this.y + fromY, this.degree, 0);
+  //   debugger
+  // } else {
+  //   return
   }
 }
 HeaderTank.prototype.shooting = function() {

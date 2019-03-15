@@ -13,12 +13,14 @@ let turnRightA = false
 let turnLeftB = false
 let turnRightB = false
 
-let timeA = false
-let timeB = false
-let time
+let timeA
+let timeB
+let shotA
+let shotB
 // we will create the canvas onece it is loaded. 
 document.onkeydown = function keyActions (e) {
   e.preventDefault()
+  // console.log(e.keyCode)
   switch (e.keyCode) {
     // player one
     case 18: // alt
@@ -34,9 +36,12 @@ document.onkeydown = function keyActions (e) {
       newPosA = true  
     break;
     case 40: //down key
-      if(!time){ 
-        timeA = true
-        time = setTimeout(_=> time = undefined, 800)}
+        shotA = true
+        if(!timeA){ 
+          if(shotA)
+            window.players[0].header.shot();  
+          timeA = setTimeout(_=> timeA = undefined, 800)
+        }
     break;    
     
     // Player two
@@ -53,9 +58,12 @@ document.onkeydown = function keyActions (e) {
       newPosB = true      
     break;
     case 83: //s key
-      if(!time){ 
-        timeB = true
-        time = setTimeout(_=> time = undefined, 800)}
+        shotB = true
+        if(!timeB){ 
+          if(shotB)
+            window.players[1].header.shot();  
+          timeB = setTimeout(_=> timeB = undefined, 800)
+        }
     break;    
   }
   if(newPosB)
@@ -91,10 +99,8 @@ document.onkeydown = function keyActions (e) {
       window.players[1].turnLeft();
     }
   }
-  if(timeA)
-    window.players[0].header.shot();  
-  if(timeB)
-    window.players[1].header.shot();  
+
+
 
 }
 

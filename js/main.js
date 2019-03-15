@@ -3,7 +3,7 @@ import {Tank} from './components/tank/tank.js';
 import {randomMap, objects, objectsKeys} from './helpers/randomMap.js'
 import * as keys from './helpers/keyAction.js' //I dont know how the fuck this works
 
-window.players = []
+window.players = [] //quitar window
 // Why the fuck are we giving a property to the windows object??
 // Well, it sucks, but for being honest, it was the easiest way to access
 // to all my players from the dom. 
