@@ -11,7 +11,7 @@ function Tank (x, y, img, imgHead, degree){
   this.speed = 3;
   this.imgHead = imgHead
   this.header = new HeaderTank(this.x, this.y, this.imgHead, this.degree)
-  this.lifes = 20
+  this.lifes = 10
 }
 Tank.prototype.paint = function() {
   this.update()

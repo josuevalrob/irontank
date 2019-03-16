@@ -12,8 +12,7 @@ function caltot(e){
   return Math.floor(e / 50)
 }
 let increase = 0
-function randomMap () { 
-  
+function randomMap () {   
   objects.blocks = 
           Array.from(Array(caltot(ver)), (_,i)=>{
             increase = i * 50            

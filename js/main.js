@@ -12,8 +12,8 @@ window.players = [] //quitar window
 function startGame(){
     randomMap();
     canvas.start();
-    window.players.push(new Tank(window.innerWidth - 200, innerHeight - 100, 'body.png', 'head.png' , 180))
-    // window.players.push(new Tank(350, 100, 'body.png', 'head.png' , 180))
+    // window.players.push(new Tank(window.innerWidth - 200, innerHeight - 100, 'body.png', 'head.png' , 180))
+    window.players.push(new Tank(350, 100, 'body.png', 'head.png' , 180))
     window.players.push(new Tank(200, 100, 'body2.png', 'head2.png' , 0))
 }
 
