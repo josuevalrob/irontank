@@ -1,8 +1,8 @@
+import {key} from './constantKey.js'
+
 let keyActions;
 let keyUp;
 
-let supporA = false
-let supporB = false
 
 let newPosA = false
 let newPosB = false
@@ -10,8 +10,16 @@ let newPosB = false
 let turnLeftA = false
 let turnRightA = false
 
+let turnHeadLeftA = false
+let turnHeadRightA = false
+
+
 let turnLeftB = false
 let turnRightB = false
+
+
+let turnHeadLeftB = false
+let turnHeadRightB = false
 
 let timeA
 let timeB
@@ -20,22 +28,25 @@ let shotB
 // we will create the canvas onece it is loaded. 
 document.onkeydown = function keyActions (e) {
   e.preventDefault()
-  // console.log(e.keyCode)
+  console.log(e.keyCode, e)
   switch (e.keyCode) {
     // player one
-    case 18: // alt
-      supporA = true;
-    break;
-    case 39: //right key
+    case key.turnRightA: //right key
       turnRightA = true
     break;
-    case 37: //left key
+    case key.turnLeftA: //left key
       turnLeftA = true
     break;
-    case 38: //Up key
+    case key.turnHeadRightA: //right key
+      turnHeadRightA = true
+    break;
+    case key.turnHeadLeftA: //left key
+      turnHeadLeftA = true
+    break;
+    case key.newPosA: //Up key
       newPosA = true  
     break;
-    case 40: //down key
+    case key.shotA: //down key
         shotA = true
         if(!timeA){ 
           if(shotA)
@@ -45,19 +56,23 @@ document.onkeydown = function keyActions (e) {
     break;    
     
     // Player two
-    case 70: // F
-      supporB = true;
+    case key.turnHeadRightB: //D
+      turnHeadRightB = true
     break;
-    case 68: //D
+    case key.turnHeadLeftB: //A key
+      turnHeadLeftB = true;
+    break;
+
+    case key.turnRightB: //D
       turnRightB = true
     break;
-    case 65: //A key
+    case key.turnLeftB: //A key
       turnLeftB = true;
     break;
-    case 87: //W key
+    case key.newPosB: //W key
       newPosB = true      
     break;
-    case 83: //s key
+    case key.shotB: //s key
         shotB = true
         if(!timeB){ 
           if(shotB)
@@ -71,34 +86,27 @@ document.onkeydown = function keyActions (e) {
   if(newPosA)
     window.players[0].newPos();    
   
-  if(turnRightA) {
-    if(supporA){
-      window.players[0].header.turnRight();      
-    } else {
-      window.players[0].turnRight();
-    }
-  }
-  if(turnLeftA){
-    if(supporA){
-      window.players[0].header.turnLeft();      
-    } else {
-      window.players[0].turnLeft();
-    }
-  }
-  if(turnRightB) {
-    if(supporB){
-      window.players[1].header.turnRight();      
-    } else {
-      window.players[1].turnRight();
-    }
-  }
-  if(turnLeftB) {
-    if(supporB){
+  if(turnRightA)
+    window.players[0].turnRight();
+      
+  if(turnLeftA)
+    window.players[0].turnLeft();
+  
+  if(turnHeadLeftA)
+    window.players[0].header.turnLeft();      
+  if(turnHeadRightA)
+    window.players[0].header.turnRight();      
+
+
+  if(turnRightB)
+    window.players[1].turnRight();
+  if(turnLeftB) 
+    window.players[1].turnLeft();
+
+  if(turnHeadLeftB)
       window.players[1].header.turnLeft();      
-    } else {
-      window.players[1].turnLeft();
-    }
-  }
+  if(turnHeadRightB)
+      window.players[1].header.turnRight();      
 
 
 
@@ -107,36 +115,44 @@ document.onkeydown = function keyActions (e) {
 document.onkeyup = function keyUp (e) {
   e.preventDefault();
   switch (e.keyCode) {
-    case 18: //logs
-      supporA = false
-    break;
-    case 70: 
-      supporB = false
-    break;
-    case 38: 
+    case key.newPosA: 
       newPosA = false
     break;
-    case 87: 
+    case key.newPosB: 
       newPosB = false
     break;
-    case 39: 
+    case key.turnRightA: 
       turnRightA = false
     break;
-    case 37: 
+    case key.turnLeftA: 
       turnLeftA = false
     break;
-    case 68: //D
+    case key.turnRightB: //D
       turnRightB = false
     break;
-    case 65: //A key
+    case key.turnLeftB: //A key
       turnLeftB = false
     break;
-    case 40: //down key
+    case key.timeA: //down key
       timeA = false
     break;   
-    case 83: //s key
+    case key.timeB: //s key
       timeB = false
     break;    
+// header
+    case key.turnHeadLeftA: //D
+      turnHeadLeftA = false
+    break;
+    case key.turnHeadRightA: //A key
+      turnHeadRightA = false
+    break;
+    case key.turnHeadLeftB: //down key
+      turnHeadLeftB = false
+    break;   
+    case key.turnHeadRightB: //s key
+      turnHeadRightB = false
+    break;    
+
   }
 }
 export {keyActions, keyUp}
