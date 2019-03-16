@@ -3,37 +3,74 @@ body {
   border: 0px;
   overflow: hidden;
   position: relative;
+  font-family: 'Sniglet', cursive;
 }
 
-.stop {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba($color: #000000, $alpha: 0.5);
-  text-align: center;
-  padding-top: 5em;
-  z-index: 2;
-  .hide {
-    display: none;
+#play {
+  .btn {
+    color: #9f9e9e;
+    margin: auto;
+    cursor: pointer;  
+    width: 100px;  
+    &:hover{
+      background: #c1763a;
+    }
   }
-}
-.play {
+  &.stop {
     position: absolute;
-    width: 300px;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.7);
     text-align: center;
-    padding-top: 2em;
+    padding-top: 5em;
     z-index: 2;
-    right: 0;
-  .hide {
-    display: block;
-    display: flex;
+    .onPlay {
+      display: none;
+    }
+
+  .onStop {
+      color: #9f9e9e;
+    .main-column{width: 100%;}
+    .column-wrapper {
+      display: flex;
+      align-content: space-around;
+      .column {
+        width: 50%;
+        ul{
+          list-style-type: none;
+          margin: 0px;
+          padding: 0px;
+        }
+      }
+    }
   }
-  .left {
-    width: 50%;
+
   }
-  .right {
-    width: 50%;
+  &.play {
+      position: absolute;
+      width: 300px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding-top: 2em;
+      z-index: 2;
+      right: 0;
+      color: white;
+      .btn{
+        color: white;
+      }
+    .onPlay {
+      display: block;
+      display: flex;
+    }
+    .onStop{
+      display: none;
+    }
+    .left {
+      width: 50%;
+    }
+    .right {
+      width: 50%;
+    }
   }
 }

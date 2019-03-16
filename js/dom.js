@@ -1,11 +1,10 @@
-
+var blue
 var button = document.getElementById("main-button");
 var curText = button.innerText;
 var element = document.getElementById("play");
     
 
-var blue = new Image()
-// blue.src = window.players
+// var blue = new Image()
 
 
 function actionButton(){

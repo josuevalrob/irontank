@@ -6,15 +6,52 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="styles/css/style.css">
 </head>
 
 <body>
   <div id="play" class="stop">
-    <button id="main-button">Start Game</button>
-    <div class="hide">
-      <div id="red" class="left">Red Tank <span></span></div>
-      <div id="green" class="right">Green Tank <span></span></div>
+    <div id="main-button" class="btn">Start Game</div>
+    <div class="onStop">
+      <div class="main-column">
+        <h3>What is all about?</h3>
+        <p>Okey, let me explain this. <br>
+        This game is about two tanks, with the only porpouse to kill each other. <br>
+        Remember, the wood blocks have 4 shoots and the iron blocks, 9. Be carefull <br>
+        they can protect you, so use them strategically. <br>
+        The trees, sucks, they reduce the bullet speed, so yeah, maybe you can use them to avoid impact,<br>
+         but who knows, is very hard to calculate the impact, so dont trust in them
+        </p>
+      </div>
+      <div class="column-wrapper">
+        <div class="left column red">
+          <h4>Red Tank</h4>
+          <ul>
+            <li>Go Foward: &nbsp;<strong>W</strong></li>
+            <li>Turn Left: &nbsp;<strong>D</strong></li>            
+            <li>Turn Right: &nbsp;<strong>A</strong></li>
+            <li>Turn HEAD Left: &nbsp;<strong>E</strong></li>
+            <li>Turn HEAD Right: &nbsp;<strong>Q</strong></li>
+            <li>Shoot: &nbsp;<strong>F</strong></li>
+          </ul>
+        </div>
+        <div class="right column green">
+          <h4>Green Tank</h4>
+          <ul>
+            <li>Go Foward:&nbsp; <strong>^/`/[</strong></li>
+            <li>Turn Left:&nbsp; <strong>Ñ</strong></li>            
+            <li>Turn Right:&nbsp; <strong>Ç</strong></li>
+            <li>Turn HEAD Left: &nbsp; <strong>P</strong></li>
+            <li>Turn HEAD Right: &nbsp; <strong>*/+</strong></li>
+            <li>Shoot: &nbsp;<strong>L</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="onPlay">
+      <div id="red" class="left">Red Tank: <span></span></div>
+      <div id="green" class="right">Green Tank: <span></span></div>
     </div>
 
   </div>
