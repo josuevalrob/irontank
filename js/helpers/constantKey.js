@@ -1,19 +1,22 @@
 export const key = {
-  newPosA: 219 ,
-  newPosB: 87 ,
+  newPosA: 79 ,
 
-  turnLeftA: 186 ,
-  turnRightA: 220 ,
+  turnLeftA: 75 ,
+  turnRightA: 186 ,
 
-  turnHeadLeftA: 80 ,
-  turnHeadRightA: 187 ,
+  turnHeadLeftA: 73 ,
+  turnHeadRightA: 80 ,
   
-  turnLeftB: 65 ,
+  shotA : 74 ,
+  
+
+  newPosB: 87 ,
+  
   turnRightB: 68 ,
+  turnLeftB: 65 ,
 
   turnHeadLeftB: 81 ,
   turnHeadRightB: 69 ,
 
-  shotA : 76 ,
   shotB : 70
 }
