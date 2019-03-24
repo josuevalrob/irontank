@@ -1,10 +1,10 @@
 import {canvas} from '../canvas.js';
 class Component {  
-  constructor (width, height, img, x, y, degree = 90) {
+  constructor (width, height, img = 'treesmall.png', x, y, degree = 90) {
     // Image properties
     this.img = img;
     this.imageComp = new Image();
-    this.imageComp.src = './assets/images/' + this.img;
+    // this.imageComp.src = './assets/images/' + this.img; //Do I need this line??
     // Size property
     this.width = width;
     this.height = height;

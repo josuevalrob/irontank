@@ -24,7 +24,6 @@ canvas.bkgDraw =  function (){
     this.mainPtrn = this.context.createPattern(this.image, 'repeat');    
     this.context.fillStyle=this.mainPtrn;    
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    // this.context.drawImage(this.image, 0, 0);
     this.border.update();
 } 
 canvas.clear = function (){
