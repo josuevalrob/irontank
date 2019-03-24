@@ -1,15 +1,15 @@
 import {Component} from './component.js';
 import {canvas} from '../canvas.js';
 
-//Copying prototypes from Component
-Static.prototype = Object.create(Component.prototype); 
+class Static extends Component {
+  constructor(width, height, img, x, y) {
+    super(this, width, height, img, x, y)
+  }
+  update (){
+    canvas.context.drawImage(this.imageComp, this.x, this.y, this.width, this.height);
+    if(this.crash)
+      this.impact()
+  }
+}
 
-function Static (width, height, img, x, y){
-  Component.call(this, width, height, img, x, y);
-}
-Static.prototype.update = function (){
-  canvas.context.drawImage(this.imageComp, this.x, this.y, this.width, this.height);
-  if(this.crash)
-    this.impact()
-}
 export {Static}
