@@ -27,7 +27,7 @@ let shotA
 let shotB
 // we will create the canvas onece it is loaded. 
 document.onkeydown = function keyActions (e) {
-  e.preventDefault()
+  // e.preventDefault()
   console.log(e.keyCode, e)
   switch (e.keyCode) {
     // player one
