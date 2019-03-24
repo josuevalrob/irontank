@@ -6,8 +6,9 @@ class Block extends Static {
     let width = 50;
     let height = 50;
     super(width, height, x, y)
-    this.currentImage = 0  
+    this.imgArr = []
     this.lifes = 0;
+    this.img = 'boxes/' + this.imgArr[0];
   }
   destroy () {
     this.lifes -= 1
