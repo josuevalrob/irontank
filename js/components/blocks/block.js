@@ -6,10 +6,9 @@ class Block extends Static {
     let width = 50;
     let height = 50;
     super(width, height, x, y)
-    this.imgArr = []
-    this.lifes = 0;
-    this.img = 'boxes/' + this.imgArr[0];
+    console.log(this.x, this.y, this.img)
   }
+  
   destroy () {
     this.lifes -= 1
     this.currentImage += 1
