@@ -2,11 +2,10 @@ import {Static} from '../static.js'
 
 
 class Block extends Static {
-  constructor (x, y) {
+  constructor (_, x, y) {
     let width = 50;
     let height = 50;
-    super(width, height, x, y)
-    console.log(this.x, this.y, this.img)
+    super(width, height, _, x, y)
   }
   
   destroy () {

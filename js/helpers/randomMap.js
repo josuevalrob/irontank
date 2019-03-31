@@ -13,52 +13,44 @@ function caltot(e){
 }
 let increase = 0
 function randomMap () {   
-  // objects.blocks = 
-  //         Array.from(Array(caltot(ver)), (_,i)=>{
-  //           increase = i * 50            
-  //           return new woodBlock((hor / 2) + 30, 200  - increase + 35)
-  //         }
-  //       ).concat( 
-  //         Array.from(Array(caltot(hor)), (_,i)=>{
-  //           increase = i * 50
-  //           return new ironBlock(hor - 60 - increase, ver)
-  //           })
-  //       ).concat(
-  //         Array.from(Array(caltot(hor)), (_,i)=>{
-  //           increase = i * 50
-  //           return new woodBlock(hor - 60 - increase, ver + 50)
-  //         })
-  //       ).concat(
-  //         Array.from(Array(caltot(hor)), (_,i)=>{
-  //           increase = i * 50
-  //           return new woodBlock(hor - 60 - increase, ver - 50)
-  //         })
-  //       ).concat(
-  //         Array.from(Array(caltot(ver)), (_,i)=>{
-  //           increase = i * 50
-  //           return new woodBlock((hor / 2) - 70, 200  - increase + 35)
-  //         })
-  //       ).concat(
-  //         Array.from(Array(caltot(ver)), (_,i)=>{
-  //           increase = i * 50
-  //           return new ironBlock((hor / 2) - 20, 200  - increase + 35)
-  //         })
-  //       ).concat(
-  //         Array.from(Array(caltot(ver)), (_,i)=>{
-  //           increase = i * 50
-  //           return new ironBlock((hor / 2) - 20, (ver * 1.935)  - increase + 35)
-  //         })
-  //       ).concat(
-  //         Array.from(Array(caltot(ver)), (_,i)=>{
-  //           increase = i * 50
-  //           return new woodBlock((hor / 2) + 30, (ver * 1.935)  - increase + 35)
-  //         })
-  //       ).concat(
-  //         Array.from(Array(caltot(ver)), (_,i)=>{
-  //           increase = i * 50
-  //           return new woodBlock((hor / 2) - 70, (ver * 1.935)  - increase + 35)
-  //         })
-  //       )
+  objects.blocks = [
+          ...Array.from(Array(caltot(ver)), (_,i)=>{
+            increase = i * 50            
+            return new woodBlock((hor / 2) + 30, 200  - increase + 35)
+          }),
+          ...Array.from(Array(caltot(hor)), (_,i)=>{
+            increase = i * 50
+            return new ironBlock(hor - 60 - increase, ver)
+            }),
+          ...Array.from(Array(caltot(hor)), (_,i)=>{
+            increase = i * 50
+            return new woodBlock(hor - 60 - increase, ver + 50)
+          }),
+          ...Array.from(Array(caltot(hor)), (_,i)=>{
+            increase = i * 50
+            return new woodBlock(hor - 60 - increase, ver - 50)
+          }),
+          ...Array.from(Array(caltot(ver)), (_,i)=>{
+            increase = i * 50
+            return new woodBlock((hor / 2) - 70, 200  - increase + 35)
+          }),
+          ...Array.from(Array(caltot(ver)), (_,i)=>{
+            increase = i * 50
+            return new ironBlock((hor / 2) - 20, 200  - increase + 35)
+          }),
+          ...Array.from(Array(caltot(ver)), (_,i)=>{
+            increase = i * 50
+            return new ironBlock((hor / 2) - 20, (ver * 1.935)  - increase + 35)
+          }),
+          ...Array.from(Array(caltot(ver)), (_,i)=>{
+            increase = i * 50
+            return new woodBlock((hor / 2) + 30, (ver * 1.935)  - increase + 35)
+          }),
+          ...Array.from(Array(caltot(ver)), (_,i)=>{
+            increase = i * 50
+            return new woodBlock((hor / 2) - 70, (ver * 1.935)  - increase + 35)
+          })
+         ]
 // Trees   
   objects.trees = [ ...positions.random.map((e, i) => pairsTree(i, e[0], e[1])), 
                     ...Array.from(Array(caltot(ver)), (_,i)=>{
