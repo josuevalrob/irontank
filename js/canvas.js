@@ -5,7 +5,7 @@ let canvas = {
     image : new Image(),  
     canvas : document.createElement('canvas'), 
     pause : true,
-    // border : new Border()
+    border : new Border()
 }
 
 canvas.start = function () {
@@ -24,7 +24,7 @@ canvas.bkgDraw =  function (){
     this.mainPtrn = this.context.createPattern(this.image, 'repeat');    
     this.context.fillStyle=this.mainPtrn;    
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    // this.border.update();
+    this.border.update();
 } 
 canvas.clear = function (){
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
